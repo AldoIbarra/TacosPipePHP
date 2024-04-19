@@ -1,0 +1,111 @@
+@font-face {
+  font-family: "Objectivity";
+  font-style: bold;
+  font-weight: 700;
+  src: url(/Objectivity/Objectivity-Black.otf) format("otf"), url(/Objectivity/Objectivity-Black.woff2) format("woff2");
+}
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-black {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+nav {
+  font-family: "Objectivity";
+  background-color: #8A3106;
+  padding: 10px 0px 10px 0px;
+}
+nav .row div:nth-child(2) {
+  text-align: center;
+}
+nav .row div:nth-child(2) img {
+  width: 180px;
+}
+nav .row div:nth-child(3) {
+  text-align: end;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+nav .row div:nth-child(3) a {
+  border-radius: 13px;
+}
+nav .row div:nth-child(3) a:nth-child(1) {
+  font-size: 24px;
+  text-decoration: none;
+  color: black;
+  background-color: #FC9B29;
+  padding: 16px 11px 12px 11px;
+}
+nav .row div:nth-child(3) a:nth-child(2) {
+  font-size: 30px;
+  text-decoration: none;
+  color: white;
+  background-color: #6B7727;
+  padding: 10px 9px 10px 9px;
+  margin-left: 30px;
+}
+
+.home-banner {
+  background-color: #3E0F04;
+}
+.home-banner p {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+}
+.home-banner .text-section {
+  height: 83vh;
+}
+.home-banner .text-section div:nth-child(1) {
+  text-align: center;
+  margin-top: 60px;
+}
+.home-banner .text-section div:nth-child(1) p:nth-child(1) {
+  font-size: 100px;
+  rotate: -6.58deg;
+}
+.home-banner .text-section div:nth-child(1) p:nth-child(2) {
+  font-size: 80px;
+  margin-top: -50px;
+}
+.home-banner .text-section div:nth-child(1) p:nth-child(3) {
+  font-size: 25px;
+  margin-top: -20px;
+}
+.home-banner .text-section div:nth-child(1) p:nth-child(4) {
+  font-size: 25px;
+  margin-top: -25px;
+}
+.home-banner .text-section div:nth-child(2) {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
+}
+.home-banner .text-section div:nth-child(2) a {
+  border-radius: 13px;
+  text-decoration: none;
+  color: black;
+  font-family: "Objectivity";
+  background-color: #EAD7AC;
+  font-size: 32px;
+  padding: 10px;
+}
+.home-banner .text-section div:nth-child(2) p {
+  font-size: 48px;
+  margin: 0px 25px 0px 25px;
+}
+.home-banner .img-section img {
+  height: 80vh;
+  margin-top: 7px;
+}
+
+/*# sourceMappingURL=styles.css.map */
