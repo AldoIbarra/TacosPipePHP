@@ -1,3 +1,9 @@
+<?php
+
+require("./backend/sessionVerif.php")
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +17,12 @@
 	<link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
-<nav>
+
+
+
+<h1>Bienvenid@ <?= $_SESSION['usuario_nombre'] ?></h1>
+<a href="./backend/cerrarSesion.php">Cerrar Sesión</a>
+<!--nav>
     <div class="container">
         <div class="row">
             <div class="col-xl-4 col-lg-4 col-md-0">
@@ -25,8 +36,10 @@
             </div>
         </div>
     </div>
-</nav>
+</nav-->
 <body>
+   
+   
     <section class="home-banner">
         <div class="container">
             <div class="row">
