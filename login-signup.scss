@@ -1,6 +1,7 @@
 $mustard: #FC9B29;
 $chocolate: #3E0F04;
 $brown: #8A3106;
+$red: #F00001;
 
 @font-face {
     font-family: 'Objectivity';
@@ -70,114 +71,6 @@ nav{
     }
 }
 
-#home-banner{
-    background-color: $chocolate;
-    p{
-        color: white;
-        font-family: "Poppins", sans-serif;
-        font-weight: 900;
-    }
-
-    .text-section{
-        height: 83vh;
-        div{
-            &:nth-child(1){
-                text-align: center;
-                margin-top: 60px;
-                p{
-                    &:nth-child(1){
-                        font-size: 100px;
-                        rotate: -6.58deg;
-                    }
-                    &:nth-child(2){
-                        font-size: 80px;
-                        margin-top: -50px;
-                    }
-                    &:nth-child(3){
-                        font-size: 25px;
-                        margin-top: -20px;
-                    }
-                    &:nth-child(4){
-                        font-size: 25px;
-                        margin-top: -25px;
-                    }
-                }
-            }
-            &:nth-child(2){
-                display: flex;
-                flex-wrap: nowrap;
-                justify-content: space-around;
-                justify-content: center;
-                align-items: center;
-                a{
-                    border-radius: 13px;
-                    text-decoration: none;
-                    color: black;
-                    font-family: 'Objectivity';
-                    background-color: #EAD7AC;
-                    font-size: 32px;
-                    padding: 10px;
-                    &:hover{
-                        background-image: url('cow-texture.png');
-                        -webkit-text-stroke: 0.5px white;
-                    }
-                }
-                p{
-                    font-size: 48px;
-                    margin: 0px 25px 0px 25px;
-                }
-            }
-        }
-    }
-
-    .img-section{
-        img{
-            height: 80vh;
-            margin-top: 7px;
-        }
-    }
-}
-
-#menu{
-    background-color: $mustard;
-    text-align: center;
-    padding: 20px 0px 20px 0px;
-    h1{
-        font-family: "Poppins", sans-serif;
-        font-weight: 900;
-        color: black;
-        font-size: 96px;
-    }
-    svg{
-        max-height: 70vh;
-        .svg-text, .cerdo{
-            cursor: pointer;
-            fill: green;
-
-        }
-        .pecho, .panza, .lomo, .lomo-enmedio, .lomo-final{
-            &:hover{
-                cursor: pointer;
-                fill: green;
-                & ~ .svg-text, .cerdo{
-                    fill: black;
-                    cursor: pointer;
-                }
-                & ~ .cerdo{
-                    fill: black;
-                    cursor: pointer;
-                }
-            }
-        }
-        .cabeza, .vacio, .muslo{
-            &:hover{
-                cursor: pointer;
-                fill: green;
-            }
-        }
-    }
-}
-
 /* menú lateral*/
 
 #btn-menu{
@@ -215,18 +108,6 @@ nav{
 #btn-menu:checked ~ .container-menu .cont-menu {
     transform: translateX(0%);
 }
-
-#bar{
-    text-align: center;
-    background-color: #FC9B29;
-    h1{
-        color: black;
-        font-family: 'Objectivity';
-        font-size: 20px;
-        margin: 0px;
-        padding: 10px 0px 5px 0px;
-    }
-}
   
 .cont-menu {
     nav {
@@ -255,5 +136,45 @@ nav{
       color: #fff;
       cursor: pointer;
       font-size: 18px;
+    }
+}
+
+/* fin menu lateral*/
+
+#form-container{
+    height: 82vh;
+    padding: 20px 0px 0px 0px;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: $brown;
+    h1{
+        font-family: 'Objectivity';
+        color: white;
+        font-size: 70px;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        align-content: space-around;
+        align-items: center;
+        color: black;
+        label{
+            color: white;
+            text-transform: capitalize;
+        }
+        input{
+            &:focus{
+                outline: 0;
+            }
+        }
+        button{
+            background-color: $mustard;
+            color: black;
+            border: none;
+            padding: 8px 25px;
+            border-radius: 10px;
+        }
     }
 }
