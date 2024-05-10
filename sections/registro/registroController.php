@@ -1,8 +1,8 @@
-<?php include_once './backend/bd_conexion.php';
+<?php include_once '../../backend/bd_conexion.php';
 $conexion=BD::crearInstancia(); 
 
-switch($_SERVER["REQUEST_METHOD"]){
-    case "POST":
+if($_SERVER["REQUEST_METHOD"]){
+    
         //print_r($_POST);
         $correo=(isset($_POST['correo']))?$_POST['correo']:null;
         $contrasena=(isset($_POST['password']))?$_POST['password']:null;
@@ -22,16 +22,17 @@ switch($_SERVER["REQUEST_METHOD"]){
         ':direccion'=>$direccion
         ));
 
+        
+        
+        
+            setcookie('correo',$correo,time()+3600, "/");
+            setcookie('contrasena',$contrasena,time()+3600, "/");            
+        
+
         echo'<script type="text/javascript">
         alert("Registrado con exito");
-        window.location.href="index.php";
-        </script>';
-
-        break;
-
-    default:
-    echo "nose";
-    break;  
+        window.location.href="../home/home.php";
+        </script>'; 
 }
 
 /*print_r($_POST);

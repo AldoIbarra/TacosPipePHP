@@ -3,7 +3,7 @@
   font-family: "Objectivity";
   font-style: bold;
   font-weight: 700;
-  src: url(/Objectivity/Objectivity-Black.otf) format("otf"), url(/Objectivity/Objectivity-Black.woff2) format("woff2");
+  src: url(../Objectivity/Objectivity-Black.otf) format("otf"), url(../Objectivity/Objectivity-Black.woff2) format("woff2");
 }
 .poppins-regular {
   font-family: "Poppins", sans-serif;
@@ -109,7 +109,7 @@ nav .row div:nth-child(3) a {
   padding: 10px;
 }
 #home-banner .text-section div:nth-child(2) a:hover {
-  background-image: url("cow-texture.png");
+  background-image: url("../resource/cow-texture.png");
   -webkit-text-stroke: 0.5px white;
 }
 #home-banner .text-section div:nth-child(2) p {

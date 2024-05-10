@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,9 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="login-signup.css">
+    <link rel="stylesheet" href="../../styles/login-signup.css">
     <title>Registrate - Tacos Pipe</title>
 </head>
+
 <nav>
     <div class="container">
         <div class="row">
@@ -18,7 +19,7 @@
                 <label for="btn-menu">☰</label>
             </div>
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                <a href="index.php"><img src="TacosPipeLogo.png" alt=""></a>
+                <a href="index.php"><img src="../../resource/TacosPipeLogo.png" alt=""></a>
             </div>
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
             </div>
@@ -37,14 +38,21 @@
             <label for="btn-menu">✖️</label>
         </div>
     </div>
-</nav>
+</nav-->    
+
+<?php
+$title="Registrate - Tacos";
+$style="../../styles/login-signup.css";
+include "../../templates/cabecera.php";
+include "../../templates/navbar.php";
+?>
 <body>
     <section id="form-container">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <h1>¡Registrate!</h1>
-                    <form action="registro.php" method="post" >
+                    <form action="./registroController.php" method="post" >
                         <label for="">correo:</label>
                         <input type="text" name="correo" id=""><br>
                         <label for="">password:</label>
@@ -62,5 +70,7 @@
             </div>
         </div>
     </section>
-</body>
-</html>
+
+<?php
+    include "../../templates/footer.php";
+?>
