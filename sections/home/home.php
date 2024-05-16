@@ -16,7 +16,7 @@ include "../../templates/navbar.php";
                 <div class="col-6 text-section">
                     <div>
                         <h1>hola <?= $_SESSION['usuario_nombre'] ?></h1>
-                        <p>¡TACOSs!</p>
+                        <p>¡TACOS!</p>
                         <p>24/7</p>
                         <p>Bañaditos en salsa Pipe</p>
                         <p>Desde 1985</p>
