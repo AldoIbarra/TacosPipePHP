@@ -8,6 +8,9 @@
                 <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Iniciar Sesión
                 </button>
+                <button type="button" class="btn btn-outline-primary">
+                    carrito
+                </button>
                 <!--trigger Modal login-->
             </div>
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">

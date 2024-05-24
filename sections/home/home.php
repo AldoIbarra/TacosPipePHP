@@ -147,7 +147,7 @@ include "../../templates/navbar.php";
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 
-          <form action="#" class="" method="post">
+          <form id="loginForm">
             <div class="modal-body">
 
               <div class="form-group">
@@ -173,7 +173,7 @@ include "../../templates/navbar.php";
           <br>
           <div class="modal-footer" >
             <button type="submit" class="btn btn-primary"> Iniciar Sesión</button>
-            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
+            <button type="button" class="btn btn-outline-danger" id="dismiss" data-bs-dismiss="modal">
               Cancelar
             </button>
           </div>
@@ -182,7 +182,45 @@ include "../../templates/navbar.php";
       </div>
     </div>
     <!--Fin modal login-->
+<script>
 
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevenir el comportamiento predeterminado del formulario
+
+    let boton=document.getElementById("dismiss");
+    // Crear un objeto FormData a partir del formulario
+    let formData = {
+        'correo': document.querySelector('input[name=correo]').value,
+        'contrasena': document.querySelector('input[name=contrasena]').value,
+        'checkSesion': document.querySelector('input[name=checkSesion]').checked
+    };
+
+    console.log(JSON.stringify(formData))
+   
+
+    // Enviar el objeto JSON con Fetch
+    fetch('http://localhost/TacosPipePHP/api/usuariosController.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'ACTION': 'Login'
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        location.reload();
+        return response.json();
+    })
+    .then(data => console.log(data))
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+});
+
+</script>
     <?php
     include "../../templates/footer.php";
     ?>

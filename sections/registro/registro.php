@@ -52,17 +52,17 @@ include "../../templates/navbar.php";
             <div class="row">
                 <div class="col-12">
                     <h1>¡Registrate!</h1>
-                    <form action="./registroController.php" method="post" >
-                        <label for="">correo:</label>
-                        <input type="text" name="correo" id=""><br>
-                        <label for="">password:</label>
-                        <input type="password" name="password" id=""><br>
-                        <label for="">nombre:</label>
-                        <input type="text" name="nombre" id=""><br>
-                        <label for="">telefono:</label>
-                        <input type="text" name="telefono" id=""><br>
-                        <label for="">direccion:</label>
-                        <input type="text" name="direccion" id=""><br>
+                    <form id="registroForm" >
+                        <label for="">Correo:</label>
+                        <input type="text" name="correo" ><br>
+                        <label for="">Contraseña:</label>
+                        <input type="password" name="contrasena" id=""><br>
+                        <label for="">Nombre:</label>
+                        <input type="text" name="nombre"><br>
+                        <label for="">Telefono:</label>
+                        <input type="text" name="telefono" ><br>
+                        <label for="">Dirección:</label>
+                        <input type="text" name="direccion" ><br>
                 
                         <button type="submit">Registrarme</button>
                     </form>
@@ -71,6 +71,38 @@ include "../../templates/navbar.php";
         </div>
     </section>
 
+<script>
+document.getElementById('registroForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevenir el comportamiento predeterminado del formulario
+
+    // Crear un objeto FormData a partir del formulario
+    var formData = new FormData(event.target);
+
+    // Convertir el objeto FormData a un objeto JSON
+    var data = Object.fromEntries(formData);
+
+    // Enviar el objeto JSON con Fetch
+    fetch('http://localhost/TacosPipePHP/api/usuariosController.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => console.log(data))
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+});
+
+ 
+</script>
 <?php
     include "../../templates/footer.php";
 ?>

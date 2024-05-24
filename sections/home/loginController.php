@@ -16,11 +16,12 @@ if($_SERVER['REQUEST_METHOD']=='GET' && $isFill  && (!isset($_SESSION['usuario_i
 }
  
 
-if($_SERVER['REQUEST_METHOD']=='POST'){
+/*if($_SERVER['REQUEST_METHOD']=='POST'){
    
     $correo=(isset($_POST['correo']))?htmlspecialchars($_POST['correo']):null;
     $contrasena=(isset($_POST['contrasena']))?$_POST['contrasena']:null;
-    $isRecordar=(isset($_POST['checkSesion']))?true:false;
+    $isRecordar=(isset($_POST['checkSesion']));
+    var_dump($isRecordar);
     
     if(empty($correo) || empty($contrasena)){
         echo "debe llenar los campos";
@@ -36,19 +37,20 @@ function matchLogin($correo, $contrasena, $conexion, $isRecordar){
     $sentencia = $conexion-> prepare($sql);
     $sentencia -> execute(['correo'=>$correo]);
 
-    $usuario = $sentencia->fetch();
+    $usuario = $sentencia->fetch(PDO::FETCH_ASSOC);
+   
 
     if(!$usuario) {
-        echo "error en correo";
        return false;
     }  
 
-    if($contrasena == $usuario["CONTRASENA"]){
+    if($contrasena == $usuario["contrasena"]){
         
-        $_SESSION['usuario_id']=$usuario["ID"];
+        $_SESSION['usuario_id']=$usuario["id"];
         
         //$_SESSION['correo']=$usuarios["CORREO"];
-        $_SESSION['usuario_nombre']=$usuario["NOMBRE"];
+        $_SESSION['usuario_nombre']=$usuario["nombre"];
+        $_SESSION['usuario_carrito']=$usuario["carritoID"];
         /*echo'<script type="text/javascript">
         alert("'.$_SESSION['usuario_tipo'].'");
         </script>';*/
@@ -58,7 +60,7 @@ function matchLogin($correo, $contrasena, $conexion, $isRecordar){
         //echo'<script>
         //window.location.href="home.php";
         //</script>';
-        if($isRecordar){
+       /* if($isRecordar){
             setcookie('correo',$correo,time()+3600, "/");
             setcookie('contrasena',$contrasena,time()+3600, "/");            
         }
@@ -73,24 +75,27 @@ function matchLogin($correo, $contrasena, $conexion, $isRecordar){
 
     //echo "todo bien";
     return true;
-}
+}*/
 
 function matchLoginCookie($conexion, $correo, $contrasena){
     $sql="call getUser(:correo)";
     $sentencia = $conexion-> prepare($sql);
     $sentencia -> execute(['correo'=>$correo]);
+    
 
     $usuario = $sentencia->fetch();
+    
 
     if(!$usuario) {
         echo "error en correo";
-        return;
+        return false;
     }
 
-    if($contrasena == $usuario["CONTRASENA"]){
+    if($contrasena == $usuario["contrasena"]){
         
-        $_SESSION['usuario_id']=$usuario["ID"];
-        $_SESSION['usuario_nombre']=$usuario["NOMBRE"];
+        $_SESSION['usuario_id']=$usuario["id"];
+        $_SESSION['usuario_nombre']=$usuario["nombre"];
+        $_SESSION['usuario_carrito']=$usuario["carritoID"];
         setcookie('correo',$correo,time()+3600,"/");
         setcookie('contrasena',$contrasena,time()+3600,"/");
 
