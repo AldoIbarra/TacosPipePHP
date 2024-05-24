@@ -1,7 +1,10 @@
 <?php
 include_once '../backend/bd_conexion.php';
 
-
+if (session_status() == PHP_SESSION_NONE) {
+    // No hay una sesión activa, así que la iniciamos
+    session_start();
+}
 class UsuarioClass{
 
     public static $conexion;

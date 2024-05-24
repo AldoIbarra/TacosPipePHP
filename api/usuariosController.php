@@ -1,6 +1,6 @@
 <?php
 include "../models/usuarioModel.php";
-session_start();
+
 $isFill=(isset($_COOKIE['correo']))?true:false;
 
 

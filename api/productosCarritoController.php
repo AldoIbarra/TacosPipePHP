@@ -1,21 +1,41 @@
 <?php
 include "../models/productosCarritoModel.php";
-session_start();
+//session_start();
 
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'GET':
         {
+            if(isset($_SERVER['HTTP_ACTION']) && $_SERVER['HTTP_ACTION'] == 'Productos'){
             //http://localhost/massivedemo/api/productosController.php/?idCarrito=1
             $productosRespuesta = ProductosCarritoClass::buscarAllProductos($_GET['idCarrito']);
                 if($productosRespuesta==null){
                     http_response_code(400);
                     echo json_encode(array("status" => "error", "message" => "ningun producto en el carrito encontrado"));
+                    exit;
                 }else{
                     http_response_code(200);
                     echo json_encode($productosRespuesta);
+                    exit;
                 }
-        }
+            }elseif(isset($_SERVER['HTTP_ACTION']) && $_SERVER['HTTP_ACTION'] == 'Total'){
+                $productosRespuesta = ProductosCarritoClass::obtenerTotalCarrito($_GET['idCarrito']);
+                if($productosRespuesta==null){
+                    http_response_code(400);
+                    echo json_encode(array("status" => "error", "message" => "ningun producto en el carrito encontrado"));
+                    exit;
+                }else{
+                    http_response_code(200);
+                    echo json_encode($productosRespuesta);
+                    exit;
+                }
+            }else{
+                http_response_code(400);
+                    echo json_encode(array("status" => "error", "message" => "ningun producto en el carrito encontrado"));
+                    exit;
+            }
+            
         break;
+        }
     case 'POST':
         {
             /*ejemplo json{"productoID":1, "cantidad":3, "idCarrito":"1"}*/

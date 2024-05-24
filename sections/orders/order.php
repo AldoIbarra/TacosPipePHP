@@ -3,9 +3,6 @@ $title="Orden - Tacos Pipe";
 $style="../../styles/order-styles.css";
 include "../../templates/cabecera.php";
 include "../../templates/navbar.php";
-session_start();
-var_dump( $_SESSION['usuario_carrito']);
-
 ?>
 
 

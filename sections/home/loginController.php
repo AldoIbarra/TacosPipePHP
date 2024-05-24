@@ -1,6 +1,11 @@
 <?php include_once '../../backend/bd_conexion.php';
 
-session_start();
+
+if (session_status() == PHP_SESSION_NONE) {
+    // No hay una sesión activa, así que la iniciamos
+    session_start();
+}
+
 $conexion=BD::crearInstancia();
 
 $isFill=(!isset($_COOKIE['correo']))?false:true;

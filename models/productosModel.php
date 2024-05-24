@@ -1,6 +1,5 @@
 <?php
 include_once '../backend/bd_conexion.php';
-session_start();
 
 class ProductoClass{
 

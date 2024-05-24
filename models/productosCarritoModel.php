@@ -14,7 +14,7 @@ class ProductosCarritoClass{
         self::inicializarConexion();
         
         try{
-        $sqlInsert="call ActualizarInsertarCarrito(:idCarrito, 1 ,:idCarrito)";
+        $sqlInsert="call ActualizarInsertarCarrito(:idCarrito, 1 ,:productoID)";
         $consultaInsert= self::$conexion->prepare($sqlInsert);
         $consultaInsert->execute([':productoID'=>$productoID,
                                   //':cantidad'=>$cantidad,
@@ -94,9 +94,29 @@ class ProductosCarritoClass{
 
     static function buscarAllProductos($id){
         self::inicializarConexion();
-        $sql="CALL GetProductosCarrito(:id)";
+        $sql="call GetProductosCarrito(:id)";
         $sentencia = self::$conexion-> prepare($sql);
-        $sentencia -> execute([':id'=> $id]);
+        $sentencia ->bindValue(':id', $id, PDO::PARAM_INT);
+        $sentencia -> execute();
+        //$sentencia->bindValue(':pagina', $pagina, PDO::PARAM_INT);
+        //$sentencia->execute();
+        
+    
+        $productos = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+    
+        if(!$productos) {
+           return null;
+        }else{
+            return $productos;
+        }
+    }
+
+    static function obtenerTotalCarrito($id){
+        self::inicializarConexion();
+        $sql="select totalCosto from carritos where id = :id ";
+        $sentencia = self::$conexion-> prepare($sql);
+        $sentencia ->bindValue(':id', $id, PDO::PARAM_INT);
+        $sentencia -> execute();
         //$sentencia->bindValue(':pagina', $pagina, PDO::PARAM_INT);
         //$sentencia->execute();
         
