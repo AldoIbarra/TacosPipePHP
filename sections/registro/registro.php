@@ -45,65 +45,34 @@ $title="Registrate - Tacos";
 $style="../../styles/login-signup.css";
 include "../../templates/cabecera.php";
 include "../../templates/navbar.php";
+$javascript = "registro.js";
 ?>
-<body>
-    <section id="form-container">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h1>¡Registrate!</h1>
-                    <form id="registroForm" >
-                        <label for="">Correo:</label>
-                        <input type="text" name="correo" ><br>
-                        <label for="">Contraseña:</label>
-                        <input type="password" name="contrasena" id=""><br>
-                        <label for="">Nombre:</label>
-                        <input type="text" name="nombre"><br>
-                        <label for="">Telefono:</label>
-                        <input type="text" name="telefono" ><br>
-                        <label for="">Dirección:</label>
-                        <input type="text" name="direccion" ><br>
-                
-                        <button type="submit">Registrarme</button>
-                    </form>
-                </div>
+<section id="form-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>¡Registrate!</h1>
+                <form id="registroForm" >
+                    <label for="">Correo:</label>
+                    <input type="text" name="correo" ><br>
+                    <label for="">Contraseña:</label>
+                    <input type="password" name="contrasena" id=""><br>
+                    <label for="">Nombre:</label>
+                    <input type="text" name="nombre"><br>
+                    <label for="">Telefono:</label>
+                    <input type="text" name="telefono" ><br>
+                    <label for="">Dirección:</label>
+                    <input type="text" name="direccion" ><br>
+            
+                    <button type="submit">Registrarme</button>
+                </form>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 <script>
-document.getElementById('registroForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevenir el comportamiento predeterminado del formulario
 
-    // Crear un objeto FormData a partir del formulario
-    var formData = new FormData(event.target);
-
-    // Convertir el objeto FormData a un objeto JSON
-    var data = Object.fromEntries(formData);
-
-    // Enviar el objeto JSON con Fetch
-    fetch('http://localhost/TacosPipePHP/api/usuariosController.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log(data)
-        window.location.href = 'http://localhost/TacosPipePHP/sections/home/home.php'; // reemplaza con tu URL
-
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
-});
 
  
 </script>

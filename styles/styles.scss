@@ -29,10 +29,11 @@ nav{
     .row{
         div{
             &:first-child{
-                text-align: start;
                 display: flex;
-                justify-content: flex-start;
+                justify-content: space-evenly;
                 align-items: center;
+                flex-direction: row;
+                flex-wrap: nowrap;
                 label{
                     border-radius: 13px;
                     font-size: 30px;
@@ -44,26 +45,39 @@ nav{
                     &:hover{
                         cursor: pointer;
                     }
+                    @media (min-width: 991.9px){ //lg
+                        display: none;
+                    }
                 }
-            }
-            &:nth-child(2){
-                text-align: center;
                 img{
                     width: 180px
                 }
+                .option{
+                    text-decoration: none;
+                    color: white;
+                    font-size: 1.5vw;
+                    @media (max-width: 991.9px){ //lg
+                        display: none;
+                    }
+                }
             }
-            &:nth-child(3){
+            &:nth-child(2){
                 text-align: end;
                 display: flex;
                 justify-content: flex-end;
                 align-items: center;
-                a{
+                button{
+                    border: none;
                     border-radius: 13px;
                     font-size: 24px;
-                    text-decoration: none;
-                    color: black;
                     background-color: $mustard;
                     padding: 16px 11px 12px 11px;
+                    &:focus{
+                        outline: none;
+                    }
+                    img{
+                        max-width: 50px;
+                    }
                 }
             }
         }
@@ -72,6 +86,13 @@ nav{
 
 #home-banner{
     background-color: $chocolate;
+    height: 83vh;
+    @media (max-width: 768px){
+        height: 60vh;
+    }
+    @media (max-width: 576px){
+        height: 45vh;
+    }
     p{
         color: white;
         font-family: "Poppins", sans-serif;
@@ -79,27 +100,29 @@ nav{
     }
 
     .text-section{
-        height: 83vh;
         div{
             &:nth-child(1){
                 text-align: center;
-                margin-top: 60px;
+                margin-top: 7vh;
+                @media (max-width: 768px){
+                    margin-top: 4vh;
+                }
                 p{
                     &:nth-child(1){
-                        font-size: 100px;
+                        font-size: 8vw;
                         rotate: -6.58deg;
                     }
                     &:nth-child(2){
-                        font-size: 80px;
-                        margin-top: -50px;
+                        font-size: 6vw;
+                        margin-top: -5vh;
                     }
                     &:nth-child(3){
-                        font-size: 25px;
-                        margin-top: -20px;
+                        font-size: 2vw;
+                        margin-top: -2.5vh;
                     }
                     &:nth-child(4){
-                        font-size: 25px;
-                        margin-top: -25px;
+                        font-size: 2vw;
+                        margin-top: -2.5vh;
                     }
                 }
             }
@@ -115,7 +138,7 @@ nav{
                     color: black;
                     font-family: 'Objectivity';
                     background-color: #EAD7AC;
-                    font-size: 32px;
+                    font-size: 2.5vw;
                     padding: 10px;
                     &:hover{
                         background-image: url('../resource/cow-texture.png');
@@ -123,8 +146,8 @@ nav{
                     }
                 }
                 p{
-                    font-size: 48px;
-                    margin: 0px 25px 0px 25px;
+                    font-size: 4vw;
+                    margin: 0px 1.5vw;
                 }
             }
         }
@@ -132,7 +155,7 @@ nav{
 
     .img-section{
         img{
-            height: 80vh;
+            width: 41vw;
             margin-top: 7px;
         }
     }
@@ -146,7 +169,10 @@ nav{
         font-family: "Poppins", sans-serif;
         font-weight: 900;
         color: black;
-        font-size: 96px;
+        font-size: 8vw;
+    }
+    h3{
+        font-size: 2.5vw;
     }
     svg{
         max-height: 70vh;
@@ -255,5 +281,21 @@ nav{
       color: #fff;
       cursor: pointer;
       font-size: 18px;
+    }
+}
+
+#enterEmailModal{
+    .modal-content{
+        .modal-header{
+            position: absolute;
+            right: 0px;
+            z-index: 1;
+            border: none;
+            button{
+                border: none;
+            }
+        }
+        .writeEmailBody{
+        }
     }
 }

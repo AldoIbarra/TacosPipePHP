@@ -206,6 +206,8 @@ drop procedure if exists ActualizarInsertarCarrito;
     ---////////////////////////////////////////////////////////////////////////////
     -- script corregido de crearPedido
 
+    drop procedure if exists crearPedido;
+
     DELIMITER //
 CREATE PROCEDURE crearPedido(in param_idCarrito int, in param_idUsario int, in param_tipoPedido varchar(30))
 BEGIN

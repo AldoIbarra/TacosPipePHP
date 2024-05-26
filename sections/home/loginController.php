@@ -19,6 +19,27 @@ if($_SERVER['REQUEST_METHOD']=='GET' && $isFill  && (!isset($_SESSION['usuario_i
     matchLoginCookie($conexion, $correo, $contrasena);
 
 }
+
+if($_SERVER['REQUEST_METHOD']=='POST'){
+
+    $email = $_POST['email'];
+
+    $data = json_decode(file_get_contents('php://input'), true);
+                
+    $resultadoFuncion = buscarUsuarioByCorreo($email);
+
+    if ($resultadoFuncion){
+        http_response_code(200);
+        $json_response = ["success" => true];
+        echo json_encode($json_response);
+    }else{
+        http_response_code(400);
+        $json_response = ["error" => true];
+        echo json_encode($json_response);
+    }
+    exit;
+
+}
  
 
 function matchLoginCookie($conexion, $correo, $contrasena){
@@ -54,10 +75,10 @@ function matchLoginCookie($conexion, $correo, $contrasena){
 }
 
 //funcion agregada buscar por correo
-function buscarUsuarioByCorreo($correo,){
+function buscarUsuarioByCorreo($correo){
         
     $conexion=BD::crearInstancia();
-    $sql="select * from usuarios where correo= :correo:";
+    $sql="select * from usuarios where correo= :correo;";
     $sentencia = $conexion-> prepare($sql);
     $sentencia -> execute([':correo'=>$correo]);
 
