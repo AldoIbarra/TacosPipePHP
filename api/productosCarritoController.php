@@ -50,7 +50,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
                     exit;
                 }
 
-                $resultadoFuncion = ProductosCarritoClass::registrarProducto($idCarrito,$productoID);
+                $resultadoFuncion = ProductosCarritoClass::registrarProducto($idCarrito,$cantidad,$productoID);
 
                if ($resultadoFuncion[0]){
                 http_response_code(200);

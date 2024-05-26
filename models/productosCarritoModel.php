@@ -10,14 +10,14 @@ class ProductosCarritoClass{
         self::$conexion = BD::crearInstancia();
     }
 
-    static function registrarProducto($idCarrito, $productoID){
+    static function registrarProducto($idCarrito, $cantidad, $productoID){
         self::inicializarConexion();
         
         try{
-        $sqlInsert="call ActualizarInsertarCarrito(:idCarrito, 1 ,:productoID)";
+        $sqlInsert="call ActualizarInsertarCarrito(:idCarrito, :cantidad , :productoID )";
         $consultaInsert= self::$conexion->prepare($sqlInsert);
         $consultaInsert->execute([':productoID'=>$productoID,
-                                  //':cantidad'=>$cantidad,
+                                  ':cantidad'=>$cantidad,
                                   ':idCarrito'=>$idCarrito]);
         return array(true,"insertado con exito");
         
