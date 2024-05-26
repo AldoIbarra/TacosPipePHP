@@ -47,6 +47,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 if(empty($productoID) || empty($idCarrito)){
                     http_response_code(400);
                     echo json_encode(array("status" => "error", "message" => "algun dato vacio"));
+                    exit;
                 }
 
                 $resultadoFuncion = ProductosCarritoClass::registrarProducto($idCarrito,$productoID);
@@ -54,9 +55,11 @@ switch ($_SERVER['REQUEST_METHOD']) {
                if ($resultadoFuncion[0]){
                 http_response_code(200);
                 echo json_encode(array("status" => "success", "message" => $resultadoFuncion[1]));
+                exit;
                }else{
                 http_response_code(400);
                 echo json_encode(array("status" => "error", "message" => $resultadoFuncion[1]));
+                exit;
                 }  
                break;
             }

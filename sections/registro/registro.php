@@ -95,7 +95,11 @@ document.getElementById('registroForm').addEventListener('submit', function(even
         }
         return response.json();
     })
-    .then(data => console.log(data))
+    .then(data => {
+        console.log(data)
+        window.location.href = 'http://localhost/TacosPipePHP/sections/home/home.php'; // reemplaza con tu URL
+
+    })
     .catch((error) => {
         console.error('Error:', error);
     });

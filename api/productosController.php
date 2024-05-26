@@ -32,6 +32,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
             }
             http_response_code(400);
             echo json_encode(array("status" => "error", "message" => "ningun usuario encontrado"));
+            exit;
         }
         break;
 

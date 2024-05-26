@@ -21,9 +21,11 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 if(UsuarioClass::buscarUsuarioByID($_GET['id'])==null){
                     http_response_code(400);
                     echo json_encode(array("status" => "error", "message" => "ningun usuario encontrado"));
+                    exit;
                 }else{
                     http_response_code(200);
                     echo json_encode($usuarioRespuesta);
+                    exit;
                 }
             }
         }
@@ -65,6 +67,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 if(empty($correo) || empty($contrasena) || empty($nombre) || empty($direccion)){
                     http_response_code(400);
                 echo json_encode(array("status" => "error", "message" => "datos vacios"));
+                exit;
                 }
 
                 $resultadoFuncion = UsuarioClass::registrarUsuario($correo, $contrasena, $nombre, $telefono, $direccion);
@@ -72,12 +75,15 @@ switch ($_SERVER['REQUEST_METHOD']) {
                if ($resultadoFuncion[0]){
                 http_response_code(200);
                 echo json_encode(array("status" => "success", "message" => $resultadoFuncion[1]));
+                exit;
                }else{
                 http_response_code(400);
                 echo json_encode(array("status" => "error", "message" => $resultadoFuncion[1]));
                 exit;
                 }
                }
+               http_response_code(400);
+               echo json_encode(array("status" => "error", "message" => "nada se obtuvo" ));
                break;
             }
     case 'PUT':
