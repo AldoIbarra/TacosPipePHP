@@ -33,6 +33,7 @@ class UsuarioClass{
             $_SESSION['usuario_id']=$usuario["id"];
             $_SESSION['usuario_nombre']=$usuario["nombre"];
             $_SESSION['usuario_carrito']=$usuario["carritoID"];
+            $_SESSION['usuario_direccion']=$usuario["direccion"];
             
             if($isRecordar){
                 setcookie('correo',$correo,time()+3600, "/");
@@ -159,6 +160,7 @@ class UsuarioClass{
             
             $_SESSION['usuario_id']=$usuario["id"];
             $_SESSION['usuario_nombre']=$usuario["nombre"];
+            $_SESSION['usuario_direccion']=$usuario["direccion"];
             setcookie('correo',$correo,time()+3600,"/");
             setcookie('contrasena',$contrasena,time()+3600,"/");
     

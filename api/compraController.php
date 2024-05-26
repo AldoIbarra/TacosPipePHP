@@ -117,7 +117,7 @@ function obtenerUltimoPedido($idUsuario, $conexion){
         $consultaInsert ->bindValue(':idUsuario', $idUsuario, PDO::PARAM_INT);
         $consultaInsert->execute();
         
-        $productos = $consultaInsert->fetchAll(PDO::FETCH_ASSOC);
+        $productos = $consultaInsert->fetch(PDO::FETCH_ASSOC);
     
         if(!$productos) {
            return null;
