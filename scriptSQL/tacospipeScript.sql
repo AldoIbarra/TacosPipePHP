@@ -203,3 +203,50 @@ drop procedure if exists ActualizarInsertarCarrito;
     END //
     DELIMITER ;
 
+    ---////////////////////////////////////////////////////////////////////////////
+    -- script corregido de crearPedido
+
+    DELIMITER //
+CREATE PROCEDURE crearPedido(in param_idCarrito int, in param_idUsario int, in param_tipoPedido varchar(30))
+BEGIN
+    DECLARE _totalCosto decimal(10,2);
+    DECLARE _productoID int;
+    DECLARE _cantidad int;
+    DECLARE param_last_id int;
+    DECLARE done INT DEFAULT FALSE;
+    
+    DECLARE cur CURSOR FOR SELECT productoID, cantidad FROM productosCarrito WHERE idCarrito = param_idCarrito and activo = 1;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+
+    SELECT totalCosto into _totalCosto from carritos where id = param_idCarrito;
+
+    INSERT INTO pedidos (totalPedido, idUsuarioPedido, tipoPedido) VALUES (_totalCosto, param_idUsario, param_tipoPedido);
+
+    SET param_last_id = LAST_INSERT_ID();
+
+    OPEN cur;
+
+    read_loop: LOOP
+        FETCH cur INTO _productoID, _cantidad;
+
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+
+        INSERT INTO ventas (articulosTotales, idPedido, idProductoVenta) VALUES (_cantidad, param_last_id, _productoID);
+
+        UPDATE productosCarrito SET activo = 0 WHERE productoID = _productoID AND idCarrito = param_idCarrito;
+    END LOOP;
+
+    
+    CLOSE cur;
+    update carritos set totalCosto = 0.00 where id = param_idCarrito;
+END //
+DELIMITER ;
+
+
+
+
+
+    
+
