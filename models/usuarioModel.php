@@ -141,6 +141,8 @@ class UsuarioClass{
         }
     }
 
+    
+
     static function matchLoginCookie($correo, $contrasena){
         $sql="call getUser(:correo)";
         $sentencia = self::$conexion-> prepare($sql);

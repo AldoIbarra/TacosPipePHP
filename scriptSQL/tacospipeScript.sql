@@ -176,7 +176,8 @@ BEGIN
     update carritos set totalCosto = 0.00 where id = param_idCarrito;
 END //
 DELIMITER ;
-
+-- ////////////////////////////////////////////////////////////////////////////////////////
+-- script agregado para corregir bug
 drop procedure if exists ActualizarInsertarCarrito;
  DELIMITER //
     CREATE PROCEDURE ActualizarInsertarCarrito(
