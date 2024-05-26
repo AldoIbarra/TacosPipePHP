@@ -109,3 +109,71 @@ BEGIN
 END //
 DELIMITER ;
 
+CREATE TABLE pedidos(
+	id INT AUTO_INCREMENT PRIMARY KEY COMMENT "Llave primaria de la tabla",
+    fechaPedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT "fecha del pedido",
+    totalPedido DECIMAL (10,2) COMMENT "Precio total del pedido",
+    estatusPedido VARCHAR(25) DEFAULT "En preparacion" COMMENT "Estatus del pedido",
+    tipoPedido VARCHAR (30) comment "Domicilio o en Sucursal",
+    idUsuarioPedido INT COMMENT "Usuario que le pertence el pedido",
+    activo BOOLEAN DEFAULT TRUE COMMENT "Borrado logico",
+    
+    FOREIGN KEY (idUsuarioPedido) REFERENCES usuarios(id)
+);
+
+CREATE TABLE ventas(
+	id INT AUTO_INCREMENT PRIMARY KEY COMMENT "Llave primaria de la tabla",
+    articulosTotales int comment "Cantidad total de articulos comprados",
+    idPedido INT COMMENT "Llave foranea al pedido al que pertenece",
+    idProductoVenta int comment "Llave foranea al producto comprado",
+    activo BOOLEAN DEFAULT TRUE COMMENT "Borrado logico",
+    
+    FOREIGN KEY (idPedido) REFERENCES pedidos(id),
+    FOREIGN KEY (idProductoVenta) REFERENCES productos(id)
+);
+
+CREATE PROCEDURE crearPedido(in param_idCarrito int, in param_idUsario int, in param_tipoPedido varchar(30))
+BEGIN
+    DECLARE _totalCosto decimal(10,2);
+    DECLARE _productoID int;
+    DECLARE _cantidad int;
+    DECLARE param_last_id int;
+    DECLARE done INT DEFAULT FALSE;
+    
+    -- Cursor para iterar sobre los productos del carrito
+    DECLARE cur CURSOR FOR SELECT productoID, cantidad FROM productosCarrito WHERE idCarrito = param_idCarrito;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+
+    -- Obtenemos el totalCosto del carrito
+    SELECT totalCosto into _totalCosto from carritos where id = param_idCarrito;
+
+    -- Insertamos en la tabla pedidos
+    INSERT INTO pedidos (totalPedido, idUsuarioPedido, tipoPedido) VALUES (_totalCosto, param_idUsario, param_tipoPedido);
+
+    -- Obtenemos el ID generado por el auto_increment
+    SET param_last_id = LAST_INSERT_ID();
+
+    -- Abrimos el cursor
+    OPEN cur;
+
+    -- Iteramos sobre cada producto del carrito
+    read_loop: LOOP
+        FETCH cur INTO _productoID, _cantidad;
+
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+
+        -- Insertamos en la tabla ventas
+        INSERT INTO ventas (articulosTotales, idPedido, idProductoVenta) VALUES (_cantidad, param_last_id, _productoID);
+
+        -- Actualizamos el campo activo en productosCarrito
+        UPDATE productosCarrito SET activo = 0 WHERE productoID = _productoID AND idCarrito = param_idCarrito;
+    END LOOP;
+
+    -- Cerramos el cursor
+    CLOSE cur;
+    update carritos set totalCosto = 0.00 where id = param_idCarrito;
+END //
+DELIMITER ;
+
