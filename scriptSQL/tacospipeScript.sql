@@ -177,3 +177,28 @@ BEGIN
 END //
 DELIMITER ;
 
+drop procedure if exists ActualizarInsertarCarrito;
+ DELIMITER //
+    CREATE PROCEDURE ActualizarInsertarCarrito(
+        IN param_idCarrito INT,
+        IN param_Cantidad INT,
+        IN param_carritoProduc INT
+    )
+    BEGIN
+        IF EXISTS (SELECT 1 FROM productosCarrito WHERE productoID = param_carritoProduc and idCarrito = param_idCarrito and activo = 1) THEN
+            UPDATE productosCarrito
+            SET cantidad = cantidad + param_Cantidad
+            WHERE productoID = param_carritoProduc AND idCarrito = param_idCarrito and activo=1;
+        ELSE
+            INSERT INTO productosCarrito(idCarrito, cantidad, productoID)
+            VALUES(param_idCarrito, param_Cantidad, param_carritoProduc);
+            UPDATE carritos SET totalItems = totalItems + 1 WHERE id = param_idCarrito;
+        END IF;
+        update carritos
+		Set totalCosto = (SELECT SUM(productosCarrito.cantidad * productos.costo) AS costo_total
+		 FROM productosCarrito
+		 JOIN productos ON productosCarrito.productoID = productos.id
+		 WHERE productosCarrito.idCarrito = param_idCarrito and productosCarrito.activo = 1) where id = param_idCarrito;
+    END //
+    DELIMITER ;
+
