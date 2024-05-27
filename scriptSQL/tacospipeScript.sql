@@ -247,8 +247,15 @@ END //
 DELIMITER ;
 
 
-
-
-
-    
-
+-- ///////
+-- coreecion getuser
+drop procedure getuser;
+DELIMITER //
+CREATE PROCEDURE getUser( in param_correo VARCHAR(255))
+BEGIN
+	select usuarios.id, usuarios.contrasena, usuarios.nombre, usuarios.direccion, carritos.id as carritoID 
+    from usuarios inner join carritos 
+    on usuarios.id = carritos.usuarioCart 
+    where correo= param_correo;
+END //
+DELIMITER ;
