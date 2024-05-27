@@ -1,7 +1,7 @@
 <?php
     $title="Tacos Pipe";
     $style="../../styles/styles.css";
-    include "loginController.php";
+    include "../../api/loginController.php";
     include "../../templates/cabecera.php";
     include "../../templates/navbar.php";
     $javascript = "home.js";
@@ -21,9 +21,9 @@
                     <p>Desde 1985</p>
                 </div>
                 <div>
-                    <a href="">¿Vienes?</a>
+                    <a href="#branches">¿Vienes?</a>
                     <p>o</p>
-                    <a href="">¿Vamos?</a>
+                    <a href="../orders/order.php">¿Vamos?</a>
                 </div>
                 
             </div>
@@ -130,6 +130,30 @@
                         </g>
                     </g>
                 </svg>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="branches">
+    <div class="container">
+        <div class="row title-container">
+            <div class="col-12">
+                <h1>¡Caile a la taquiza!</h1>
+                <h3>Nuestas sucursales</h3>
+            </div>
+        </div>
+        <div class="maps">
+            <div class="col-4 map"> <!-- //Tacos pipe pino Suárez -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57529.97357584354!2d-100.39006737832028!3d25.683777599999992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662955509f3944b%3A0xd5bb08bb885ce9fe!2sTacos%20pipe%20pino%20Su%C3%A1rez!5e0!3m2!1ses!2smx!4v1716762409437!5m2!1ses!2smx" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <h4>Pino Suárez</h4>
+            </div>
+            <div class="col-4 map"> <!-- //Tacos Pipe Madero -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57529.97357584354!2d-100.39006737832028!3d25.683777599999992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662958d949926d3%3A0x108ee2e7b027de38!2sTacos%20Pipe%20Madero!5e0!3m2!1ses!2smx!4v1716762529208!5m2!1ses!2smx" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <h4>Madero</h4>
+            </div>
+            <div class="col-4 map"> <!-- Tacos Pipe Talleres -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114987.34480174785!2d-100.4900298480857!3d25.758851029811986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866296b682ad6971%3A0xac823bc1d542eba0!2sTacos%20Pipe%20Talleres!5e0!3m2!1ses!2smx!4v1716762567365!5m2!1ses!2smx" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <h4>Talleres</h4>
             </div>
         </div>
     </div>

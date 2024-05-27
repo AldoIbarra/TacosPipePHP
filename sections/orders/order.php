@@ -30,5 +30,44 @@ $javascript = "order.js";
             </div-->
         </div>
     </div>
+    <div class="col-xl-4 col-lg-4 col-md-0 cart-menu">
+        <label for="cart-menu"><img src="../../resource/cart.svg" alt=""></label>
+    </div>
+    
+    <input type="checkbox" id="cart-menu">
+    <div class="container-menu">
+        <div class="cont-cartmenu">
+            <section class="checkout">
+                <label id="close-button" for="cart-menu">✖️</label>
+                <div class="h-info checkout-item">
+                    <h3>Tu orden</h3>
+                    <h5>Envío a domicilio</h5>
+                </div>
+                <div class="checkout-item">
+                    <h4>Tu dirección de entrega</h4>
+                    <h5 id="adress"></h5>
+                </div>
+                <div class="h-info checkout-item">
+                    <h4>Entrega estimada</h4>
+                    <h5>45-60 mins</h5>
+                </div>
+                <div class="h-info checkout-item">
+                    <h4>Metodo de pago</h4>
+                    <h5>Efectivo</h5>
+                </div>
+                <div class="checkout-item" id="checkout-products">
+                    <h4>Mi orden</h4>
+                </div>
+                <div class="checkout-item checkout-totals">
+                    <div>
+                        <h4>Total a pagar</h4>
+                        <h4 id="order-total">$300</h4>
+                    </div>
+                    <button>Realizar pedido</button>
+                </div>
+            </section>
+        </div>
+    </div>
 </section>
-    <?php include "../../templates/footer.php"; ?>
+<script src="../home/home.js"></script>
+<?php include "../../templates/footer.php"; ?>

@@ -110,7 +110,7 @@ function checkEmail(){
     email = $('#checkEmail').val();
     $.ajax({
         type: "POST",
-        url: "loginController.php",
+        url: "../../api/loginController.php",
         data: {
             email: email
         },

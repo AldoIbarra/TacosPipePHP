@@ -1,4 +1,5 @@
-<?php include_once '../../backend/bd_conexion.php';
+<?php 
+include 'C:\xampp\htdocs\TacosPipePHP\backend\bd_conexion.php';
 
 
 if (session_status() == PHP_SESSION_NONE) {

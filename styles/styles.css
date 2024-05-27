@@ -65,18 +65,19 @@ nav .row div:nth-child(2) {
   justify-content: flex-end;
   align-items: center;
 }
-nav .row div:nth-child(2) button {
+nav .row div:nth-child(2) button, nav .row div:nth-child(2) a {
   border: none;
   border-radius: 13px;
   font-size: 24px;
   background-color: #FC9B29;
-  padding: 16px 11px 12px 11px;
+  padding: 5px 11px 5px 11px;
 }
-nav .row div:nth-child(2) button:focus {
+nav .row div:nth-child(2) button:focus, nav .row div:nth-child(2) a:focus {
   outline: none;
 }
-nav .row div:nth-child(2) button img {
-  max-width: 50px;
+nav .row div:nth-child(2) button img, nav .row div:nth-child(2) a img {
+  max-width: 25px;
+  max-height: 25px;
 }
 
 #home-banner {
@@ -165,6 +166,7 @@ nav .row div:nth-child(2) button img {
 }
 #menu h3 {
   font-size: 2.5vw;
+  color: black;
 }
 #menu svg {
   max-height: 70vh;
@@ -188,6 +190,32 @@ nav .row div:nth-child(2) button img {
 #menu svg .cabeza:hover, #menu svg .vacio:hover, #menu svg .muslo:hover {
   cursor: pointer;
   fill: green;
+}
+
+#branches {
+  background-color: #6B7727;
+  text-align: center;
+  padding: 20px 0px 20px 0px;
+  height: 48.5vw;
+}
+#branches .title-container h1 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  color: black;
+  font-size: 8vw;
+}
+#branches .title-container h3 {
+  font-size: 2.5vw;
+  color: black;
+}
+#branches .maps {
+  padding-top: 30px;
+  display: flex;
+}
+#branches .maps h4 {
+  color: black;
+  padding-top: 20px;
+  font-size: 3vw;
 }
 
 /* menú lateral*/
@@ -264,6 +292,7 @@ nav .row div:nth-child(2) button img {
   font-size: 18px;
 }
 
+/*fin de ventana lateral*/
 #enterEmailModal .modal-content .modal-header {
   position: absolute;
   right: 0px;

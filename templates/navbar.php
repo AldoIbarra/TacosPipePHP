@@ -8,33 +8,16 @@
                 </a>
                 <a href="..\..\sections\orders\order.php" class="option">¡Ordena!</a>
                 <a href="#menu" class="option">Nuestro menú</a>
-                <a href="#" class="option">Sucursales</a>
-                <!--trigger Modal login-->
-                <!-- <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Iniciar Sesión
-                </button>
-                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#carritoModal">
-                    carrito
-                </button> -->
-                <!--trigger Modal login-->
+                <a href="#branches" class="option">Sucursales</a>
             </div>
             <div class="col-4">
                 <button type="button" onclick="profileUser()" id="signInSignUp">
-                    <img src="../../resource/TacosPipeLogo.png" alt="" />
+                    <img src="../../resource/logIn.svg" alt="" />
                 </button>
                 <div>
-                    <a href="../../backend/cerrarSesion.php" id="closeSesion">Cerrar Sesión</a>
+                    <a href="../../backend/cerrarSesion.php" id="closeSesion"><img src="../../resource/logOut.svg" alt="" /></a>
                 </div>
             </div>
-            <!-- <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                <?php
-                    /*if($user != null && $user != ''){
-                        echo '<a href="order.php">¡ORDENA YA!</a>';
-                    }else{
-                        echo '<a href="login.php">¡ORDENA YA!</a>';
-                    }*/
-                ?>
-            </div> -->
         </div>
     </div>
     <input type="checkbox" id="btn-menu" />
@@ -43,9 +26,7 @@
             <nav>
                 <a href="..\..\sections\orders\order.php">¡Ordena!</a>
                 <a href="#menu">Nuestro menú</a>
-                <a href="#">Sucursales</a>
-                <a href="#">Nosotros</a>
-                <a href="#">Contacto</a>
+                <a href="#branches">Sucursales</a>
             </nav>
             <label for="btn-menu">✖️</label>
         </div>

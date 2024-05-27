@@ -4,6 +4,7 @@ $(document ).ready(function() {
     $.ajaxSetup({cache: false})
     $.get('../../api/getsession.php', function (data) {
         session = JSON.parse(data);
+        console.log(session);
     });
 
     fetch('http://localhost/TacosPipePHP/api/productosController.php/?categoria=Platillo', {
@@ -14,7 +15,6 @@ $(document ).ready(function() {
         }
         return response.json();
     }).then(data => {
-        console.log(data);
         mostrarProductos(data);
     }).catch((error) => {
         console.error('Error:', error);
@@ -22,7 +22,55 @@ $(document ).ready(function() {
 
 });
 
+$('#cart-menu').change(
+    function(){
+        if (this.checked) {
+            console.log('cambio');
+            if(session){
+                console.log('hay una sesion iniciada');
+                console.log(session);
+                $('#adress').text(session.usuario_direccion);
+                getCartProducts();
+            }else{
+                console.log('no hay sesion iniciada');
+            }
+        }
+    }
+);
 
+function getCartProducts(){
+
+    fetch('http://localhost/TacosPipePHP/api/productosCarritoController.php/?idCarrito=1', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'ACTION': 'Productos'
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Error HTTP: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(json => {
+        console.log(json);
+        var total;
+        json.forEach(function(row) {
+            $('#checkout-products').append(setProduct(row.imagen, row.nombre, row.subtotal, row.cantidad));
+        });
+    })
+    .catch(function(error) {
+      
+    
+    });
+}
+
+function setProduct(img, nombre, subtotal, cantidad){
+    
+    html = '<div class="checkout-product"><img src="' + img + '" alt=""><div class="items-cart"><p>' + nombre + '</p><p>' + subtotal + '</p></div><p>Cantidad: ' + cantidad + '</p></div>'
+    return html;
+}
 
 
 

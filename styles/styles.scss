@@ -1,6 +1,7 @@
 $mustard: #FC9B29;
 $chocolate: #3E0F04;
 $brown: #8A3106;
+$pipegreen: #6B7727;
 
 @font-face {
     font-family: 'Objectivity';
@@ -66,17 +67,18 @@ nav{
                 display: flex;
                 justify-content: flex-end;
                 align-items: center;
-                button{
+                button, a{
                     border: none;
                     border-radius: 13px;
                     font-size: 24px;
                     background-color: $mustard;
-                    padding: 16px 11px 12px 11px;
+                    padding: 5px 11px 5px 11px;
                     &:focus{
                         outline: none;
                     }
                     img{
-                        max-width: 50px;
+                        max-width: 25px;
+                        max-height: 25px;
                     }
                 }
             }
@@ -173,6 +175,7 @@ nav{
     }
     h3{
         font-size: 2.5vw;
+        color: black;
     }
     svg{
         max-height: 70vh;
@@ -202,6 +205,35 @@ nav{
             }
         }
     }
+}
+
+#branches{
+    background-color: $pipegreen;
+    text-align: center;
+    padding: 20px 0px 20px 0px;
+    height: 48.5vw;
+    .title-container{
+        h1{
+            font-family: "Poppins", sans-serif;
+            font-weight: 900;
+            color: black;
+            font-size: 8vw;
+        }
+        h3{
+            font-size: 2.5vw;
+            color: black;
+        }
+    }
+    .maps{
+        padding-top: 30px;
+        display: flex;
+        h4{
+            color: black;
+            padding-top: 20px;
+            font-size: 3vw;
+        }
+    }
+
 }
 
 /* menú lateral*/
@@ -283,6 +315,8 @@ nav{
       font-size: 18px;
     }
 }
+
+/*fin de ventana lateral*/
 
 #enterEmailModal{
     .modal-content{
