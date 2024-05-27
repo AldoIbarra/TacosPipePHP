@@ -166,9 +166,10 @@ include "../../templates/navbar.php";
       function enviarDatos() {
     // Crear el objeto JSON
     let datos = {
-        "idCarrito": 1,
-        "idUsuario": 6,
-        "tipoPedido": "sucursal"
+        "idCarrito": <?php echo $_SESSION['usuario_carrito'] ?>,
+
+        "idUsuario": <?php echo $_SESSION['usuario_id']?>,
+        "tipoPedido": "domicilio"
     };
 
     // Hacer la petición fetch
