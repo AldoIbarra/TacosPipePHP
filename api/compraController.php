@@ -39,13 +39,15 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 $idUsuario= intval($_GET['idUsuario']);
                 $resultadoFuncion = obtenerPedidos($idUsuario, $conexion);
 
-                if ($resultadoFuncion){
-                 http_response_code(200);
-                 echo json_encode(array("status" => "success", "message" => "todo bien"));
+                if ($resultadoFuncion==null){
+                    http_response_code(400);
+                    echo json_encode(array("status" => "error", "message" => "error"));
+                    exit;
+                 
                 }else{
-                 http_response_code(400);
-                 echo json_encode(array("status" => "error", "message" => "error en api compra"));
-                 exit;
+                    http_response_code(200);
+                    echo json_encode($resultadoFuncion);
+                    exit;
                  }
 
             }
