@@ -153,7 +153,7 @@ function obtenerPedidos($idUsuario, $conexion){
         
            
             foreach ($pedidos as $indice => $pedido) {
-                $sqlQuery="SELECT ventas.articulosTotales, productos.nombre
+                $sqlQuery="SELECT ventas.articulosTotales, productos.nombre, productos.imagen, productos.costo, productos.costo * ventas.articulosTotales as subtotal
                 FROM ventas
                 JOIN productos ON ventas.idProductoVenta = productos.id
                 WHERE ventas.idPedido = :idPedido";
