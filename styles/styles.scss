@@ -71,15 +71,18 @@ nav{
                 button, a{
                     border: none;
                     border-radius: 13px;
-                    font-size: 24px;
+                    font-size: 20px;
                     background-color: $mustard;
                     padding: 5px 11px 5px 11px;
+                    text-decoration: none;
+                    color: black;
+                    opacity: .8;
                     &:focus{
                         outline: none;
                     }
-                    img{
-                        max-width: 25px;
-                        max-height: 25px;
+                    &:hover{
+                        opacity: 1;
+                        transition: ease-in-out .3s;
                     }
                 }
             }
@@ -181,29 +184,11 @@ nav{
     svg{
         max-height: 70vh;
         .svg-text, .cerdo{
-            cursor: pointer;
             fill: green;
 
         }
-        .pecho, .panza, .lomo, .lomo-enmedio, .lomo-final{
-            &:hover{
-                cursor: pointer;
-                fill: green;
-                & ~ .svg-text, .cerdo{
-                    fill: black;
-                    cursor: pointer;
-                }
-                & ~ .cerdo{
-                    fill: black;
-                    cursor: pointer;
-                }
-            }
-        }
-        .cabeza, .vacio, .muslo{
-            &:hover{
-                cursor: pointer;
-                fill: green;
-            }
+        .svg-text, .cerdo, .arrachera, .pirata, .burrito, .menudo, .gringa{
+            cursor: pointer;
         }
     }
 }
@@ -211,8 +196,7 @@ nav{
 #branches{
     background-color: $pipegreen;
     text-align: center;
-    padding: 20px 0px 20px 0px;
-    height: 48.5vw;
+    padding: 25px 0px 25px 0px;
     .title-container{
         h1{
             font-family: "Poppins", sans-serif;

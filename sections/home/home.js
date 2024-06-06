@@ -8,6 +8,91 @@ $(document ).ready(function() {
         getLastOrder();
     });
     $('#signUpButton').prop('disabled', true);
+
+    $(".burrito").hover(function(){
+            $(this).css("fill", "green");
+            $(".burrito-text").css("fill", "yellow");
+        }, function(){
+            $(this).css("fill", "black");
+            $(".burrito-text").css("fill", "green");
+    });
+
+    $(".burrito-text").hover(function(){
+            $(".burrito-text").css("fill", "yellow");
+            $(".burrito").css("fill", "green");
+        }, function(){
+            $(".burrito-text").css("fill", "green");
+            $(".burrito").css("fill", "black");
+    });
+
+    $(".menudo").hover(function(){
+            $(this).css("fill", "green");
+            $(".menudo-text").css("fill", "yellow");
+        }, function(){
+            $(this).css("fill", "black");
+            $(".menudo-text").css("fill", "green");
+    });
+
+    $(".menudo-text").hover(function(){
+            $(".menudo-text").css("fill", "yellow");
+            $(".menudo").css("fill", "green");
+        }, function(){
+            $(".menudo-text").css("fill", "green");
+            $(".menudo").css("fill", "black");
+    });
+
+    $(".arrachera").hover(function(){
+            $(this).css("fill", "green");
+            $(".arrachera-text").css("fill", "yellow");
+        }, function(){
+            $(this).css("fill", "black");
+            $(".arrachera-text").css("fill", "green");
+    });
+
+    $(".arrachera-text").hover(function(){
+            $(".arrachera-text").css("fill", "yellow");
+            $(".arrachera").css("fill", "green");
+        }, function(){
+            $(".arrachera-text").css("fill", "green");
+            $(".arrachera").css("fill", "black");
+    });
+
+    $(".pirata").hover(function(){
+            $(this).css("fill", "green");
+            $(".pirata-text").css("fill", "yellow");
+        }, function(){
+            $(this).css("fill", "black");
+            $(".pirata-text").css("fill", "green");
+    });
+
+    $(".pirata-text").hover(function(){
+            $(".pirata-text").css("fill", "yellow");
+            $(".pirata").css("fill", "green");
+        }, function(){
+            $(".pirata-text").css("fill", "green");
+            $(".pirata").css("fill", "black");
+    });
+
+    $(".gringa").hover(function(){
+            $(this).css("fill", "green");
+            $(".gringa-text").css("fill", "yellow");
+        }, function(){
+            $(this).css("fill", "black");
+            $(".gringa-text").css("fill", "green");
+    });
+
+    $(".gringa-text").hover(function(){
+            $(".gringa-text").css("fill", "yellow");
+            $(".gringa").css("fill", "green");
+        }, function(){
+            $(".gringa-text").css("fill", "green");
+            $(".gringa").css("fill", "black");
+    });
+
+    $(".menudo-g").click(function(){
+        console.log('click en menudo');
+    });
+
 });
 
 document.getElementById('loginForm').addEventListener('submit', function(event) {

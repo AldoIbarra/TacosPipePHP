@@ -68,16 +68,19 @@ nav .row div:nth-child(2) {
 nav .row div:nth-child(2) button, nav .row div:nth-child(2) a {
   border: none;
   border-radius: 13px;
-  font-size: 24px;
+  font-size: 20px;
   background-color: #FC9B29;
   padding: 5px 11px 5px 11px;
+  text-decoration: none;
+  color: black;
+  opacity: 0.8;
 }
 nav .row div:nth-child(2) button:focus, nav .row div:nth-child(2) a:focus {
   outline: none;
 }
-nav .row div:nth-child(2) button img, nav .row div:nth-child(2) a img {
-  max-width: 25px;
-  max-height: 25px;
+nav .row div:nth-child(2) button:hover, nav .row div:nth-child(2) a:hover {
+  opacity: 1;
+  transition: ease-in-out 0.3s;
 }
 
 #home-banner {
@@ -172,31 +175,16 @@ nav .row div:nth-child(2) button img, nav .row div:nth-child(2) a img {
   max-height: 70vh;
 }
 #menu svg .svg-text, #menu svg .cerdo {
-  cursor: pointer;
   fill: green;
 }
-#menu svg .pecho:hover, #menu svg .panza:hover, #menu svg .lomo:hover, #menu svg .lomo-enmedio:hover, #menu svg .lomo-final:hover {
+#menu svg .svg-text, #menu svg .cerdo, #menu svg .arrachera, #menu svg .pirata, #menu svg .burrito, #menu svg .menudo, #menu svg .gringa {
   cursor: pointer;
-  fill: green;
-}
-#menu svg .pecho:hover ~ .svg-text, #menu svg .pecho:hover .cerdo, #menu svg .panza:hover ~ .svg-text, #menu svg .panza:hover .cerdo, #menu svg .lomo:hover ~ .svg-text, #menu svg .lomo:hover .cerdo, #menu svg .lomo-enmedio:hover ~ .svg-text, #menu svg .lomo-enmedio:hover .cerdo, #menu svg .lomo-final:hover ~ .svg-text, #menu svg .lomo-final:hover .cerdo {
-  fill: black;
-  cursor: pointer;
-}
-#menu svg .pecho:hover ~ .cerdo, #menu svg .panza:hover ~ .cerdo, #menu svg .lomo:hover ~ .cerdo, #menu svg .lomo-enmedio:hover ~ .cerdo, #menu svg .lomo-final:hover ~ .cerdo {
-  fill: black;
-  cursor: pointer;
-}
-#menu svg .cabeza:hover, #menu svg .vacio:hover, #menu svg .muslo:hover {
-  cursor: pointer;
-  fill: green;
 }
 
 #branches {
   background-color: #6B7727;
   text-align: center;
-  padding: 20px 0px 20px 0px;
-  height: 48.5vw;
+  padding: 25px 0px 25px 0px;
 }
 #branches .title-container h1 {
   font-family: "Poppins", sans-serif;

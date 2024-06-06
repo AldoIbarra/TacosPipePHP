@@ -12,10 +12,10 @@
             </div>
             <div class="col-4">
                 <button type="button" onclick="profileUser()" id="signInSignUp">
-                    <img src="../../resource/logIn.svg" alt="" />
+                    Ingresar
                 </button>
                 <div>
-                    <a href="../../backend/cerrarSesion.php" id="closeSesion"><img src="../../resource/logOut.svg" alt="" /></a>
+                    <a href="../../backend/cerrarSesion.php" id="closeSesion">Cerrar sesión</a>
                 </div>
             </div>
         </div>
