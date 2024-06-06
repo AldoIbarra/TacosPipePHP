@@ -259,3 +259,18 @@ BEGIN
     where correo= param_correo;
 END //
 DELIMITER ;
+
+-- eliminacion del antiguo menu
+SET FOREIGN_KEY_CHECKS = 0;
+truncate table productos;
+truncate table productosCarrito;
+truncate table ventas;
+truncate table pedidos;
+-- inserts menu
+insert into productos (nombre,descripcion,imagen, costo, categoria) values ("Barbacoa","Ricos tacos de barbacoa bañados en su tradicional salsa Pipe.", "../../resource/menu/menu1.jpg", 80.00, "Platillo");
+insert into productos (nombre,descripcion,imagen, costo, categoria) values ("Menudo","Rico caldo de menudo con un sabor espectacular.", "../../resource/menu/menu2.jpg", 100.00, "Platillo");
+insert into productos (nombre,descripcion,imagen, costo, categoria) values ("Gringa","Tortilla de harina con carne de trompo con abundante queso.", "../../resource/menu/menu4.jpg", 100.00, "Platillo");
+insert into productos (nombre,descripcion,imagen, costo, categoria) values ("Arrachera","Ricos tacos de carne de arrachera selecta.", "../../resource/menu/menu6.jpg", 100.00, "Platillo");
+insert into productos (nombre,descripcion,imagen, costo, categoria) values ("Pirata","Tortilla de harina con carne de res con abundante queso.", "../../resource/menu/menu3.jpg", 100.00, "Platillo");
+insert into productos (nombre,descripcion,imagen, costo, categoria) values ("Burrito","Tortilla de harina con carne de res deshebrada, con los tradicionales frijoles y verdura.", "../../resource/menu/menu5.jpg", 100.00, "Platillo");
+SET FOREIGN_KEY_CHECKS = 1;
