@@ -2,6 +2,7 @@ $mustard: #FC9B29;
 $chocolate: #3E0F04;
 $brown: #8A3106;
 $pipegreen: #6B7727;
+$cream: #EAD7AC;
 
 @font-face {
     font-family: 'Objectivity';
@@ -139,7 +140,7 @@ nav{
                     text-decoration: none;
                     color: black;
                     font-family: 'Objectivity';
-                    background-color: #EAD7AC;
+                    background-color: $cream;
                     font-size: 2.5vw;
                     padding: 10px;
                     &:hover{
@@ -236,6 +237,75 @@ nav{
 
 }
 
+#last-order{
+    background-color: $pipegreen;
+    padding: 30px 0px;
+    .order-warn{
+        color: black;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        h4{
+            font-family: "Poppins", sans-serif;
+            font-weight: 900;
+            font-size: 2vw;
+        }
+    }
+    .last-order-details{
+        color: white;
+        background-color: #bc0000;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 20px;
+        border-radius: 20px;
+        .products-container{
+            display: flex;
+            .product{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                align-items: center;
+                margin-right: 10px;
+                img{
+                    width: 8vw;
+                    object-fit: contain;
+                    margin-right: 5px;
+                    box-shadow: 0 0 8px 8px #bc0000 inset;
+                }
+                h5{
+                    font-size: 1.5vw;
+                }
+                h6{
+                    font-size: 1.2vw;
+                }
+            }
+        }
+        .button-container{
+            a{
+                background-color: red;
+                color: white;
+                border: none;
+                padding: 7px 10px;
+                border-radius: 20px;
+                opacity: .8;
+                font-size: 1.4vw;
+                text-decoration: none;
+                &:focus{
+                    outline: none;
+                }
+                &:hover{
+                    opacity: 1;
+                    transition: ease-in-out .3s;
+                }
+            }
+        }
+    }
+}
+
 /* menú lateral*/
 
 #btn-menu{
@@ -319,6 +389,8 @@ nav{
 /*fin de ventana lateral*/
 
 #enterEmailModal{
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
     .modal-content{
         .modal-header{
             position: absolute;
@@ -330,6 +402,127 @@ nav{
             }
         }
         .writeEmailBody{
+            .title-container-writeEmailBody{
+                margin-top: 30px;
+                h3{
+                    font-family: "Poppins", sans-serif;
+                    font-weight: 900;
+                    padding: 15px;
+                }
+            }
+            .modal-footer{
+                button{
+                    border: none;
+                    opacity: .75;
+                    &:first-child{
+                        background-color: $cream;
+                        color: black;
+                    }
+                    &:nth-child(2){
+                        background-color: #3e0f04;
+                        color: white;
+                    }
+                    &:hover{
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#loginModal{
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    .modal-content{
+        .modal-header{
+            position: absolute;
+            right: 0px;
+            z-index: 1;
+            border: none;
+            button{
+                border: none;
+            }
+        }
+        .form-and-title{
+            padding: 20px;
+            h3{
+                font-family: "Poppins", sans-serif;
+                font-weight: 900;
+                font-size: 25px;
+                padding: 20px 10px 10px 10px;
+            }
+            #loginForm{
+                .modal-footer{
+                    button{
+                        border: none;
+                        opacity: .75;
+                        &:first-child{
+                            background-color: $cream;
+                            color: black;
+                        }
+                        &:nth-child(2){
+                            background-color: #3e0f04;
+                            color: white;
+                        }
+                        &:hover{
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#signUpModal{
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    .modal-content{
+        .modal-header{
+            position: absolute;
+            right: 0px;
+            z-index: 1;
+            border: none;
+            button{
+                border: none;
+            }
+        }
+        .form-and-title{
+            padding: 20px;
+            h3{
+                font-family: "Poppins", sans-serif;
+                font-weight: 900;
+                font-size: 25px;
+                padding: 20px 10px 10px 10px;
+            }
+            #signUpForm{
+                .modal-body{
+                    .form-group{
+                        margin-bottom: 3px;
+                        display: flex;
+                        flex-direction: column;
+                    }
+                }
+                .modal-footer{
+                    padding: 0px 12px 12px 12px;
+                    button{
+                        border: none;
+                        opacity: .75;
+                        &:first-child{
+                            background-color: $cream;
+                            color: black;
+                        }
+                        &:nth-child(2){
+                            background-color: #3e0f04;
+                            color: white;
+                        }
+                        &:hover{
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
         }
     }
 }

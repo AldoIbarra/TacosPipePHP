@@ -19,6 +19,7 @@ $(document ).ready(function() {
     }).catch((error) => {
         console.error('Error:', error);
     });
+    var total = 0;
 
 });
 
@@ -40,7 +41,7 @@ $('#cart-menu').change(
 
 function getCartProducts(){
 
-    fetch('http://localhost/TacosPipePHP/api/productosCarritoController.php/?idCarrito=1', {
+    fetch('http://localhost/TacosPipePHP/api/productosCarritoController.php/?idCarrito=' + session.usuario_carrito, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -54,11 +55,14 @@ function getCartProducts(){
         return response.json();
     })
     .then(json => {
+        total = 0;
         console.log(json);
-        var total;
+        $('#checkout-products').empty();
         json.forEach(function(row) {
             $('#checkout-products').append(setProduct(row.imagen, row.nombre, row.subtotal, row.cantidad));
+            total += parseFloat(row.subtotal);
         });
+        $('#order-total').text('$' + total);
     })
     .catch(function(error) {
       
@@ -150,4 +154,42 @@ function addCarrito(producto) {
         .then(response => response.json())
         .then(data => console.log(data))
         .catch(error => console.error('Error:', error));
+}
+
+function enviarDatos() {
+    // Crear el objeto JSON
+    let datos = {
+        "idCarrito": session.usuario_carrito,
+        "idUsuario": session.usuario_id,
+        "tipoPedido": "sucursal"
+    };
+
+    // Hacer la petición fetch
+    fetch('http://localhost/TacosPipePHP/api/compraController.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(datos)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Error HTTP: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(json => {
+        console.log(json);
+
+        Swal.fire("SweetAlert2 is working!");
+        alert('Pago procesado con exito, pedido exitoso');
+        window.location.href = 'http://localhost/TacosPipePHP/sections/home/home.php';
+        
+    })
+    .catch(function(error) {
+      
+        console.log('Hubo un problema con la petición Fetch:' + error.message);
+        alert('Hubo un error al procesar su pago');
+        location.reload();
+    });
 }

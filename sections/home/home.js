@@ -5,7 +5,9 @@ $(document ).ready(function() {
     $.get('../../api/getsession.php', function (data) {
         session = JSON.parse(data);
         checkSession();
+        getLastOrder();
     });
+    $('#signUpButton').prop('disabled', true);
 });
 
 document.getElementById('loginForm').addEventListener('submit', function(event) {
@@ -103,26 +105,32 @@ function logIn(correo, contrasena, checkSesion){
 }
 
 function profileUser(){
+    $('#checkEmail').val('');
     $('#enterEmailModal').modal("show");
 }
 
 function checkEmail(){
     email = $('#checkEmail').val();
-    $.ajax({
-        type: "POST",
-        url: "../../api/loginController.php",
-        data: {
-            email: email
-        },
-        success: function(data) {
-            $('#enterEmailModal').modal("hide");
-            $('#loginModal').modal("show");
-        },
-        error: function(xhr, status, error) {
-            $('#enterEmailModal').modal("hide");
-            $('#signUpModal').modal("show");
-        },
-    });
+    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if($('#checkEmail').val() && regex.test(email)){
+        $.ajax({
+            type: "POST",
+            url: "../../api/loginController.php",
+            data: {
+                email: email
+            },
+            success: function(data) {
+                $('#enterEmailModal').modal("hide");
+                $('#emailLogin').val($('#checkEmail').val());
+                $('#loginModal').modal("show");
+            },
+            error: function(xhr, status, error) {
+                $('#enterEmailModal').modal("hide");
+                $('#signUpEmail').val($('#checkEmail').val());
+                $('#signUpModal').modal("show");
+            },
+        });
+    }
 }
 
 function checkSession(){
@@ -132,5 +140,51 @@ function checkSession(){
     }else{
         $('#signInSignUp').show();
         $('#closeSesion').hide();
+    }
+}
+
+function getLastOrder(){
+    console.log('entro a last order');
+    console.log(session);
+    if(Object.keys(session).length){
+        fetch('http://localhost/TacosPipePHP/api/compraController.php/?idUsuario=' + session.usuario_id, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Error HTTP: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(json => {
+            $('#bar').hide();
+            $('#last-order').show();
+            console.log(json);
+            console.log(json[0]);
+            console.log(Object.keys(json).length)
+        })
+        .catch(function(error) {
+            $('#last-order').hide();
+            $('#bar').show();
+            console.log('Hubo un problema con la petición Fetch:' + error.message);
+        });
+    }else{
+        $('#last-order').hide();
+        $('#bar').show();
+        console.log('no hay una sesion iniciada o no hay pédidos');
+    }
+    
+}
+
+function checkPassword(){
+    if($('#contrasena').val() == $('#confirmContrasena').val()){
+        $('#signUpButton').prop('disabled', false);
+        $("#confirmContrasena").removeClass("is-invalid");
+    }else{
+        $('#signUpButton').prop('disabled', true);
+        $("#confirmContrasena").addClass("is-invalid");
     }
 }

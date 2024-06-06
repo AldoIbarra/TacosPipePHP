@@ -218,6 +218,73 @@ nav .row div:nth-child(2) button img, nav .row div:nth-child(2) a img {
   font-size: 3vw;
 }
 
+#last-order {
+  background-color: #6B7727;
+  padding: 30px 0px;
+}
+#last-order .order-warn {
+  color: black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+#last-order .order-warn h4 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-size: 2vw;
+}
+#last-order .last-order-details {
+  color: white;
+  background-color: #bc0000;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px;
+  border-radius: 20px;
+}
+#last-order .last-order-details .products-container {
+  display: flex;
+}
+#last-order .last-order-details .products-container .product {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-right: 10px;
+}
+#last-order .last-order-details .products-container .product img {
+  width: 8vw;
+  object-fit: contain;
+  margin-right: 5px;
+  box-shadow: 0 0 8px 8px #bc0000 inset;
+}
+#last-order .last-order-details .products-container .product h5 {
+  font-size: 1.5vw;
+}
+#last-order .last-order-details .products-container .product h6 {
+  font-size: 1.2vw;
+}
+#last-order .last-order-details .button-container a {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 7px 10px;
+  border-radius: 20px;
+  opacity: 0.8;
+  font-size: 1.4vw;
+  text-decoration: none;
+}
+#last-order .last-order-details .button-container a:focus {
+  outline: none;
+}
+#last-order .last-order-details .button-container a:hover {
+  opacity: 1;
+  transition: ease-in-out 0.3s;
+}
+
 /* menú lateral*/
 #btn-menu {
   display: none;
@@ -293,6 +360,10 @@ nav .row div:nth-child(2) button img, nav .row div:nth-child(2) a img {
 }
 
 /*fin de ventana lateral*/
+#enterEmailModal {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+}
 #enterEmailModal .modal-content .modal-header {
   position: absolute;
   right: 0px;
@@ -301,6 +372,113 @@ nav .row div:nth-child(2) button img, nav .row div:nth-child(2) a img {
 }
 #enterEmailModal .modal-content .modal-header button {
   border: none;
+}
+#enterEmailModal .modal-content .writeEmailBody .title-container-writeEmailBody {
+  margin-top: 30px;
+}
+#enterEmailModal .modal-content .writeEmailBody .title-container-writeEmailBody h3 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  padding: 15px;
+}
+#enterEmailModal .modal-content .writeEmailBody .modal-footer button {
+  border: none;
+  opacity: 0.75;
+}
+#enterEmailModal .modal-content .writeEmailBody .modal-footer button:first-child {
+  background-color: #EAD7AC;
+  color: black;
+}
+#enterEmailModal .modal-content .writeEmailBody .modal-footer button:nth-child(2) {
+  background-color: #3e0f04;
+  color: white;
+}
+#enterEmailModal .modal-content .writeEmailBody .modal-footer button:hover {
+  opacity: 1;
+}
+
+#loginModal {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+}
+#loginModal .modal-content .modal-header {
+  position: absolute;
+  right: 0px;
+  z-index: 1;
+  border: none;
+}
+#loginModal .modal-content .modal-header button {
+  border: none;
+}
+#loginModal .modal-content .form-and-title {
+  padding: 20px;
+}
+#loginModal .modal-content .form-and-title h3 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-size: 25px;
+  padding: 20px 10px 10px 10px;
+}
+#loginModal .modal-content .form-and-title #loginForm .modal-footer button {
+  border: none;
+  opacity: 0.75;
+}
+#loginModal .modal-content .form-and-title #loginForm .modal-footer button:first-child {
+  background-color: #EAD7AC;
+  color: black;
+}
+#loginModal .modal-content .form-and-title #loginForm .modal-footer button:nth-child(2) {
+  background-color: #3e0f04;
+  color: white;
+}
+#loginModal .modal-content .form-and-title #loginForm .modal-footer button:hover {
+  opacity: 1;
+}
+
+#signUpModal {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+}
+#signUpModal .modal-content .modal-header {
+  position: absolute;
+  right: 0px;
+  z-index: 1;
+  border: none;
+}
+#signUpModal .modal-content .modal-header button {
+  border: none;
+}
+#signUpModal .modal-content .form-and-title {
+  padding: 20px;
+}
+#signUpModal .modal-content .form-and-title h3 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-size: 25px;
+  padding: 20px 10px 10px 10px;
+}
+#signUpModal .modal-content .form-and-title #signUpForm .modal-body .form-group {
+  margin-bottom: 3px;
+  display: flex;
+  flex-direction: column;
+}
+#signUpModal .modal-content .form-and-title #signUpForm .modal-footer {
+  padding: 0px 12px 12px 12px;
+}
+#signUpModal .modal-content .form-and-title #signUpForm .modal-footer button {
+  border: none;
+  opacity: 0.75;
+}
+#signUpModal .modal-content .form-and-title #signUpForm .modal-footer button:first-child {
+  background-color: #EAD7AC;
+  color: black;
+}
+#signUpModal .modal-content .form-and-title #signUpForm .modal-footer button:nth-child(2) {
+  background-color: #3e0f04;
+  color: white;
+}
+#signUpModal .modal-content .form-and-title #signUpForm .modal-footer button:hover {
+  opacity: 1;
 }
 
 /*# sourceMappingURL=styles.css.map */

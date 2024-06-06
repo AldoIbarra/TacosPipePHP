@@ -55,15 +55,16 @@ $javascript = "order.js";
                     <h4>Metodo de pago</h4>
                     <h5>Efectivo</h5>
                 </div>
+                <h4>Mi orden</h4>
                 <div class="checkout-item" id="checkout-products">
-                    <h4>Mi orden</h4>
+                    
                 </div>
                 <div class="checkout-item checkout-totals">
                     <div>
                         <h4>Total a pagar</h4>
-                        <h4 id="order-total">$300</h4>
+                        <h4 id="order-total"></h4>
                     </div>
-                    <button>Realizar pedido</button>
+                    <button onclick="enviarDatos();">Realizar pedido</button>
                 </div>
             </section>
         </div>

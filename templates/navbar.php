@@ -39,21 +39,22 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="loginModalLabel">Iniciar sesión</h3>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div>
+            <div class="form-and-title">
+                <h3>🤠</h3>
+                <h3 class="modal-title" id="loginModalLabel">Parece ser que ya tienes cuenta con nosotros, ingresa tu correo y contraseña.</h3>
                 <form id="loginForm">
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="email">Correo:</label>
-                            <input type="email" name="correo" class="form-control is-invalid" placeholder="algo@algo.algo" />
+                            <input id="emailLogin" type="email" name="correo" class="form-control" placeholder="algo@algo.algo" />
                             <br />
                         </div>
 
                         <div class="form-group">
                             <label for="apellido">Contraseña:</label>
-                            <input type="password" name="contrasena" class="form-control is-invalid" placeholder="Contraseña" />
+                            <input type="password" name="contrasena" class="form-control" placeholder="Contraseña" />
                             <br />
                         </div>
 
@@ -87,10 +88,13 @@
             </div>
 
             <div class="writeEmailBody">
+                <div class="title-container-writeEmailBody">
+                    <h3>¡Hola!, proporcionanos tu correo electronico por favor 🙏🏽.</h3>
+                </div>
                   <div class="modal-body">
                       <div class="form-group">
                           <label for="email">Correo electronico:</label>
-                          <input type="email" name="correo" class="form-control is-invalid" placeholder="algo@algo.algo" id="checkEmail" required/>
+                          <input type="email" name="correo" class="form-control" placeholder="algo@algo.algo" id="checkEmail" required/>
                           <br />
                       </div>
                   </div>
@@ -107,50 +111,50 @@
 </div>
 
 
-<!--Modal login-->
+<!--Modal signUp-->
 <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="signUpModalLabel">Registrate</h3>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div>
+            <div class="form-and-title">
+                <h3 class="modal-title" id="signUpModalLabel">¿Tons eres nuevo por aquí?, pasanos tus datos 🐮</h3>
                 <form id="signUpForm">
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="">Correo:</label>
-                            <input type="text" name="correo" ><br>
-                            <br />
+                            <label for="correo">Correo:</label>
+                            <input class="form-control" type="text" name="correo" id="signUpEmail">
                         </div>
 
                         <div class="form-group">
-                            <label for="">Contraseña:</label>
-                            <input type="password" name="contrasena" id=""><br>
-                            <br />
+                            <label for="nombre">Nombre:</label>
+                            <input class="form-control" type="text" name="nombre">
                         </div>
 
                         <div class="form-group">
-                            <label for="">Nombre:</label>
-                            <input type="text" name="nombre"><br>
-                            <br />
+                            <label for="telefono">Telefono:</label>
+                            <input class="form-control" type="text" name="telefono" >
                         </div>
 
                         <div class="form-group">
-                            <label for="">Telefono:</label>
-                            <input type="text" name="telefono" ><br>
-                            <br />
+                            <label for="direccion">Dirección:</label>
+                            <input class="form-control" type="text" name="direccion" >
                         </div>
 
                         <div class="form-group">
-                            <label for="">Dirección:</label>
-                            <input type="text" name="direccion" ><br>
-                            <br />
+                            <label for="contrasena">Contraseña:</label>
+                            <input onkeyup="checkPassword()" class="form-control" type="password" name="contrasena" id="contrasena">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmContrasena">Confirma tu contraseña:</label>
+                            <input onkeyup="checkPassword()" class="form-control" type="password" name="confirmContrasena" id="confirmContrasena">
                         </div>
                     </div>
                     <br />
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Registrarsme</button>
+                        <button type="submit" class="btn btn-primary" id="signUpButton">Registrarse</button>
                         <button type="button" class="btn btn-outline-danger" id="dismiss" data-bs-dismiss="modal">
                             Cancelar
                         </button>

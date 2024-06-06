@@ -33,6 +33,43 @@
         </div>
     </div>
 </section>
+<section id="last-order">
+    <div class="container">
+        <div class="row">
+            <div class="col-3 order-warn">
+                <h4>¡Parece que ya has pedido con nosotros!</h4>
+            </div>
+            <div class="col-9 last-order-details">
+                <div class="products-container">
+                    <div class="product">
+                        <img src="../../resource/menu/menu2.jpg" alt="">
+                        <div>
+                            <h5>tacotrompo</h5>
+                            <h6>$18.50</h6>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <img src="../../resource/menu/menu2.jpg" alt="">
+                        <div>
+                            <h5>tacobistk</h5>
+                            <h6>$38.50</h>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <img src="../../resource/menu/menu2.jpg" alt="">
+                        <div>
+                            <h5>tacobistk</h5>
+                            <h6>$38.50</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <a href="..\..\sections\orders\order.php">Pedir de nuevo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <section id="menu">
     <div class="container">
         <div class="row">
