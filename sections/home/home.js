@@ -162,9 +162,14 @@ function getLastOrder(){
         .then(json => {
             $('#bar').hide();
             $('#last-order').show();
-            console.log(json);
-            console.log(json[0]);
-            console.log(Object.keys(json).length)
+            var max = 3;
+            var cont = 1;
+            json[0].productos.forEach(function(row) {
+                if(cont < max){
+                    $('.products-container').append(setDashboardProduct(row.imagen, row.nombre, row.costo));
+                }
+                ++cont;
+            });
         })
         .catch(function(error) {
             $('#last-order').hide();
@@ -187,4 +192,9 @@ function checkPassword(){
         $('#signUpButton').prop('disabled', true);
         $("#confirmContrasena").addClass("is-invalid");
     }
+}
+
+function setDashboardProduct(img, title, price){
+    var tag = '<div class="product"><img src="' + img + '" alt=""><div><h5>' + title + '</h5><h6>$' + price + '</h6></div></div>';
+    return tag;
 }

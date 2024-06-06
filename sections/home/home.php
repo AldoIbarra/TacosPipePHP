@@ -41,27 +41,6 @@
             </div>
             <div class="col-9 last-order-details">
                 <div class="products-container">
-                    <div class="product">
-                        <img src="../../resource/menu/menu2.jpg" alt="">
-                        <div>
-                            <h5>tacotrompo</h5>
-                            <h6>$18.50</h6>
-                        </div>
-                    </div>
-                    <div class="product">
-                        <img src="../../resource/menu/menu2.jpg" alt="">
-                        <div>
-                            <h5>tacobistk</h5>
-                            <h6>$38.50</h>
-                        </div>
-                    </div>
-                    <div class="product">
-                        <img src="../../resource/menu/menu2.jpg" alt="">
-                        <div>
-                            <h5>tacobistk</h5>
-                            <h6>$38.50</h6>
-                        </div>
-                    </div>
                 </div>
                 <div class="button-container">
                     <a href="..\..\sections\orders\order.php">Pedir de nuevo</a>
