@@ -67,9 +67,24 @@ $javascript = "order.js";
                     <button onclick="enviarDatos();">Realizar pedido</button>
                 </div>
             </section>
+            <section class="no-products">
+                <label id="close-button" for="cart-menu">✖️</label>
+                <h3>Aún no hay productos en tu carrito.</h3>
+            </section>
         </div>
     </div>
 </section>
+
+<div id="toastCart" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header">
+    <strong class="mr-auto">Exitoso</strong>
+    <img src="../../resource/TacosPipeLogo.png" class="rounded mr-2" alt="...">
+  </div>
+  <div class="toast-body">
+    Agregado al carrito.
+  </div>
+</div>
+
 <script src="../home/home.js"></script>
 
 <?php include "../../templates/footer.php"; ?>

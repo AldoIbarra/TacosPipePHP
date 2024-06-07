@@ -6,7 +6,13 @@
                 <a href="../../index.php">
                     <img src="../../resource/TacosPipeLogo.png" alt="" />
                 </a>
-                <a href="..\..\sections\orders\order.php" class="option">¡Ordena!</a>
+                <?php
+                    if ($_SESSION) {
+                        echo '<a href="..\..\sections\orders\order.php" class="option">¡Ordena!</a>';
+                    } else {
+                        echo '<button type="button" onclick="profileUser()" class="option">¡Ordena!</button>';
+                    }
+                ?>
                 <a href="#menu" class="option">Nuestro menú</a>
                 <a href="#branches" class="option">Sucursales</a>
             </div>
@@ -24,7 +30,13 @@
     <div class="container-menu">
         <div class="cont-menu">
             <nav>
-                <a href="..\..\sections\orders\order.php">¡Ordena!</a>
+                <?php
+                    if ($_SESSION) {
+                        echo '<a href="..\..\sections\orders\order.php" >¡Ordena!</a>';
+                    } else {
+                        echo '<button type="button" onclick="profileUser()" class="option">¡Ordena!</button>';
+                    }
+                ?>
                 <a href="#menu">Nuestro menú</a>
                 <a href="#branches">Sucursales</a>
             </nav>

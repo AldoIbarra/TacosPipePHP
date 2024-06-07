@@ -13,6 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://unpkg.com/intro.js/intro.js" ></script>
 	<link rel="stylesheet" href=<?= $style ?>>
+    <link rel="icon" type="image/x-icon" href="../../resource/TacosPipeLogo.png">
     <title><?= $title ?></title>
 </head>
 <body>

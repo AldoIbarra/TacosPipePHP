@@ -53,6 +53,8 @@ nav .row div:first-child .option {
   text-decoration: none;
   color: white;
   font-size: 1.5vw;
+  background-color: transparent;
+  border: none;
 }
 @media (max-width: 991.9px) {
   nav .row div:first-child .option {
@@ -134,7 +136,7 @@ nav .row div:nth-child(2) button:hover, nav .row div:nth-child(2) a:hover {
   justify-content: center;
   align-items: center;
 }
-#home-banner .text-section div:nth-child(2) a {
+#home-banner .text-section div:nth-child(2) a, #home-banner .text-section div:nth-child(2) button {
   border-radius: 13px;
   text-decoration: none;
   color: black;
@@ -142,8 +144,9 @@ nav .row div:nth-child(2) button:hover, nav .row div:nth-child(2) a:hover {
   background-color: #EAD7AC;
   font-size: 2.5vw;
   padding: 10px;
+  border: none;
 }
-#home-banner .text-section div:nth-child(2) a:hover {
+#home-banner .text-section div:nth-child(2) a:hover, #home-banner .text-section div:nth-child(2) button:hover {
   background-image: url("../resource/cow-texture.png");
   -webkit-text-stroke: 0.5px white;
 }
@@ -177,7 +180,7 @@ nav .row div:nth-child(2) button:hover, nav .row div:nth-child(2) a:hover {
 #menu svg .svg-text, #menu svg .cerdo {
   fill: green;
 }
-#menu svg .svg-text, #menu svg .cerdo, #menu svg .arrachera, #menu svg .pirata, #menu svg .burrito, #menu svg .menudo, #menu svg .gringa {
+#menu svg .svg-text, #menu svg .cerdo, #menu svg .arrachera, #menu svg .pirata, #menu svg .burrito, #menu svg .menudo, #menu svg .gringa, #menu svg .cabeza {
   cursor: pointer;
 }
 
@@ -325,15 +328,17 @@ nav .row div:nth-child(2) button:hover, nav .row div:nth-child(2) a:hover {
 .cont-menu nav {
   transform: translateY(15%);
 }
-.cont-menu nav a {
+.cont-menu nav a, .cont-menu nav button {
+  border: none;
   display: block;
   text-decoration: none;
   padding: 20px;
   color: #c7c7c7;
   border-left: 5px solid transparent;
   transition: all 400ms ease;
+  background-color: transparent;
 }
-.cont-menu nav a:hover {
+.cont-menu nav a:hover, .cont-menu nav button:hover {
   border-left: 5px solid #c7c7c7;
   background: #FC9B29;
   color: black;

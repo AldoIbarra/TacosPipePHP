@@ -31,8 +31,6 @@ $('#cart-menu').change(
         if (this.checked) {
             console.log('cambio');
             if(session){
-                console.log('hay una sesion iniciada');
-                console.log(session);
                 $('#adress').text(session.usuario_direccion);
                 getCartProducts();
             }else{
@@ -43,7 +41,7 @@ $('#cart-menu').change(
 );
 
 function getCartProducts(){
-
+    console.log('obtiene los productos del carrito');
     fetch('http://localhost/TacosPipePHP/api/productosCarritoController.php/?idCarrito=' + session.usuario_carrito, {
         method: 'GET',
         headers: {
@@ -58,6 +56,8 @@ function getCartProducts(){
         return response.json();
     })
     .then(json => {
+        $('.no-products').hide();
+        $('.checkout').show();
         total = 0;
         console.log(json);
         $('#checkout-products').empty();
@@ -68,8 +68,10 @@ function getCartProducts(){
         $('#order-total').text('$' + total);
     })
     .catch(function(error) {
-      
-    
+      console.log(error);
+        
+      $('.no-products').show();
+      $('.checkout').hide();
     });
 }
 
@@ -156,7 +158,9 @@ function addCarrito(producto) {
     // Realizar la petición fetch
     fetch('http://localhost/TacosPipePHP/api/productosCarritoController.php', options)
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => {
+            showToast();
+        })
         .catch(error => console.error('Error:', error));
 }
 
@@ -196,6 +200,13 @@ function enviarDatos() {
         alert('Hubo un error al procesar su pago');
         location.reload();
     });
+}
+
+function showToast(){
+    $('#toastCart').show();
+    setTimeout(() => {
+        $('#toastCart').hide();
+      }, 3000);
 }
 
 //introJs().refresh();

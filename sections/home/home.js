@@ -89,6 +89,22 @@ $(document ).ready(function() {
             $(".gringa").css("fill", "black");
     });
 
+    $(".cabeza").hover(function(){
+            $(this).css("fill", "green");
+            $(".cabeza-text").css("fill", "yellow");
+        }, function(){
+            $(this).css("fill", "black");
+            $(".cabeza-text").css("fill", "green");
+    });
+
+    $(".cabeza-text").hover(function(){
+            $(".cabeza-text").css("fill", "yellow");
+            $(".cabeza").css("fill", "green");
+        }, function(){
+            $(".cabeza-text").css("fill", "green");
+            $(".cabeza").css("fill", "black");
+    });
+
     $(".menudo-g").click(function(){
         console.log('click en menudo');
     });
@@ -248,7 +264,7 @@ function getLastOrder(){
             $('#bar').hide();
             $('#last-order').show();
             var max = 3;
-            var cont = 1;
+            var cont = 0;
             json[0].productos.forEach(function(row) {
                 if(cont < max){
                     $('.products-container').append(setDashboardProduct(row.imagen, row.nombre, row.costo));
