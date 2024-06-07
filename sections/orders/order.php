@@ -32,6 +32,7 @@ $javascript = "order.js";
     </div>
     <div class="col-xl-4 col-lg-4 col-md-0 cart-menu">
         <label for="cart-menu" data-title="Carrito" data-intro="Aquí puedes ver los productos que has agregado al carrito y proceder al pago" ><img src="../../resource/cart.svg" alt=""></label>
+        <label style="visibility: hidden;" for="cart-menu"><img src="../../resource/cart.svg" alt=""></label>
     </div>
     
     <input type="checkbox" id="cart-menu">

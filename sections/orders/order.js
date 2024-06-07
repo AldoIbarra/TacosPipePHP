@@ -16,7 +16,8 @@ $(document ).ready(function() {
         return response.json();
     }).then(data => {
         mostrarProductos(data);
-        introJs().setOption("dontShowAgain", true).start();
+        introJs().setOption("dontShowAgain", true).setOption("dontShowAgainLabel", "No mostrar de nuevo").
+    setOption("nextLabel", "Siguiente").setOption("prevLabel", "Anterior").start();
     }).catch((error) => {
         console.error('Error:', error);
     });
@@ -86,9 +87,9 @@ function setProduct(img, nombre, subtotal, cantidad){
 function mostrarProductos(productos) {
     let contenedor = document.getElementById("productos");
 
-    productos.forEach(producto => {
+    productos.forEach((producto,index) => {
         let html = `
-        <div class="row" data-title="Platillo" data-intro="Aquí puedes ver el platillo con su descripción y precio">
+<div class="row" data-title="Platillo" ${index === 0 ? 'data-title="Platillos" data-intro="Aquí puedes ver el platillo con su descripción y precio" ' : ''} >
             <div class="col-3 image-container">
                 <img src="${producto.imagen}" alt="">
             </div>
@@ -104,13 +105,13 @@ function mostrarProductos(productos) {
                 <p>${producto.descripcion}</p>
             </div>
             <div class="col-3 add-products">
-                <div class="incdec-button" data-title="Cantidad" data-intro="Aquí puedes controlar la cantidad de productos que vas a mandar al carrito">
+                <div class="incdec-button" ${index === 0 ? 'data-title="Cantidad" data-intro="Aquí puedes controlar la cantidad de productos que vas a mandar al carrito" ' : ''} >
                     <button onclick="disminuir('dish${producto.id}')">-</button>
                     <p class="cantidad" id="dish${producto.id}">1</p>
                     <button onclick="incrementar('dish${producto.id}')">+</button>
                 </div>
                 <div class="add-to-cart">
-                    <button data-title="Agregar al carrito" data-intro="Con este botón puedes agregas el platillo al carrito" onclick="addCarrito(this.value)" value="${producto.id}" >Agregar al carrito</button>
+                    <button ${index === 0 ? 'data-title="Agregar al carrito" data-intro="Con este botón puedes agregas el platillo al carrito" ' : ''}  onclick="addCarrito(this.value)" value="${producto.id}" >Agregar al carrito</button>
                 </div>
             </div>
             <div class="col-12 order-now">
@@ -120,7 +121,7 @@ function mostrarProductos(productos) {
     });
 }
 
-
+//introJs().refresh();
 //document.addEventListener('DOMContentLoaded', (event) => {
 // Primero, seleccionamos los elementos del DOM
 
@@ -216,4 +217,4 @@ function showToastPedido(){
       }, 3000);
 }
 
-//introJs().refresh();
+introJs().refresh();

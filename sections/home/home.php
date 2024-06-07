@@ -3,7 +3,7 @@
     $style="../../styles/styles.css";
     include "../../api/loginController.php";
     include "../../templates/cabecera.php";
-    include "../../templates/navbar.php";
+    include "../../templates/navbar2.php";
     $javascript = "home.js";
 ?>
 <section id="bar">
@@ -21,13 +21,13 @@
                     <p>Desde 1985</p>
                 </div>
                 <div>
-                    <a href="#branches">¿Vienes?</a>
+                <a href="#branches" data-intro="Desde aquí también puedes hacer clic para ver las sucursales" >¿Vienes?</a>
                     <p>o</p>
                     <?php
                         if ($_SESSION) {
                             echo '<a href="../orders/order.php">¿Vamos?</a>';
                         } else {
-                            echo '<button type="button" onclick="profileUser()" class="option">¿Vamos?</button>';
+                            echo '<button type="button" onclick="profileUser()" class="option" data-intro="Desde aquí también puedes hacer clic para ordenar los platillos que quieras" >¿Vamos?</button>';
                         }
                     ?>
                 </div>
@@ -197,6 +197,11 @@
   </div>
 </div>
     
+<script>
+    introJs().setOption("dontShowAgain", true).setOption("dontShowAgainLabel", "No mostrar de nuevo").
+    setOption("nextLabel", "Siguiente").setOption("prevLabel", "Anterior").start();
+</script>
+
 <?php
     include "../../templates/footer.php";
 ?>

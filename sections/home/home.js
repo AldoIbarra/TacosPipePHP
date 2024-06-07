@@ -306,3 +306,5 @@ function showToast(){
         $('#toastSignUp').hide();
       }, 3000);
 }
+
+
