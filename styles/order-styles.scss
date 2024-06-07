@@ -245,17 +245,29 @@ $brown: #8A3106;
         }
     }
     .no-products{
-        height: 100vh;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        align-content: center;
+        div{
+            &:first-child{
+                position: absolute;
+                right: 1vw;
+                top: 1vh;
+            }
+            &:nth-child(2){
+                height: 100vh;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                align-content: center;
+                h3{
+                    margin-left: 15px;
+                }
+            }
+        }
     }
 }
 
-#toastCart{
+#toastCart, #toastPedido{
     position: sticky;
     bottom: 3vh;
     width:max-content;

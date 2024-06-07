@@ -68,8 +68,12 @@ $javascript = "order.js";
                 </div>
             </section>
             <section class="no-products">
-                <label id="close-button" for="cart-menu">✖️</label>
-                <h3>Aún no hay productos en tu carrito.</h3>
+                <div>
+                    <label id="close-button" for="cart-menu">✖️</label>
+                </div>
+                <div>
+                    <h3>Aún no hay productos en tu carrito.</h3>
+                </div>
             </section>
         </div>
     </div>
@@ -81,7 +85,17 @@ $javascript = "order.js";
     <img src="../../resource/TacosPipeLogo.png" class="rounded mr-2" alt="...">
   </div>
   <div class="toast-body">
-    Agregado al carrito.
+     Agregado al carrito.
+  </div>
+</div>
+
+<div id="toastPedido" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header">
+    <strong class="mr-auto">Exitoso</strong>
+    <img src="../../resource/TacosPipeLogo.png" class="rounded mr-2" alt="...">
+  </div>
+  <div class="toast-body">
+     Pedido realizado exitosamente.
   </div>
 </div>
 

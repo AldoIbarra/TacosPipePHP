@@ -215,7 +215,12 @@
 .cont-cartmenu .checkout #checkout-products .checkout-product .items-cart p:first-child {
   font-weight: 700;
 }
-.cont-cartmenu .no-products {
+.cont-cartmenu .no-products div:first-child {
+  position: absolute;
+  right: 1vw;
+  top: 1vh;
+}
+.cont-cartmenu .no-products div:nth-child(2) {
   height: 100vh;
   display: flex;
   flex-wrap: wrap;
@@ -224,8 +229,11 @@
   align-items: center;
   align-content: center;
 }
+.cont-cartmenu .no-products div:nth-child(2) h3 {
+  margin-left: 15px;
+}
 
-#toastCart {
+#toastCart, #toastPedido {
   position: sticky;
   bottom: 3vh;
   width: max-content;
@@ -233,13 +241,13 @@
   margin-right: 3vw;
   transition: ease-in-out 0.3s;
 }
-#toastCart .toast-header {
+#toastCart .toast-header, #toastPedido .toast-header {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
 }
-#toastCart .toast-header img {
+#toastCart .toast-header img, #toastPedido .toast-header img {
   width: 2vw;
 }
 

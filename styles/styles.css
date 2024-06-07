@@ -474,4 +474,22 @@ nav .row div:nth-child(2) button:hover, nav .row div:nth-child(2) a:hover {
   opacity: 1;
 }
 
+#toastSignUp {
+  position: sticky;
+  bottom: 3vh;
+  width: max-content;
+  margin-left: auto;
+  margin-right: 3vw;
+  transition: ease-in-out 0.3s;
+}
+#toastSignUp .toast-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+#toastSignUp .toast-header img {
+  width: 2vw;
+}
+
 /*# sourceMappingURL=styles.css.map */

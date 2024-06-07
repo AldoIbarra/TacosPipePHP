@@ -514,3 +514,22 @@ nav{
         }
     }
 }
+
+
+#toastSignUp{
+    position: sticky;
+    bottom: 3vh;
+    width:max-content;
+    margin-left:auto;
+    margin-right: 3vw;
+    transition: ease-in-out .3s;
+    .toast-header{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        img{
+            width: 2vw;
+        }
+    }
+}

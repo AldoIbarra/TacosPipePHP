@@ -190,14 +190,14 @@ function enviarDatos() {
         console.log(json);
 
         Swal.fire("SweetAlert2 is working!");
-        alert('Pago procesado con exito, pedido exitoso');
+        showToastPedido();
         window.location.href = 'http://localhost/TacosPipePHP/sections/home/home.php';
-        
     })
     .catch(function(error) {
       
         console.log('Hubo un problema con la petición Fetch:' + error.message);
-        alert('Hubo un error al procesar su pago');
+        //alert('Hubo un error al procesar su pago');
+        showToastPedido();
         location.reload();
     });
 }
@@ -206,6 +206,13 @@ function showToast(){
     $('#toastCart').show();
     setTimeout(() => {
         $('#toastCart').hide();
+      }, 3000);
+}
+
+function showToastPedido(){
+    $('#toastPedido').show();
+    setTimeout(() => {
+        $('#toastPedido').hide();
       }, 3000);
 }
 

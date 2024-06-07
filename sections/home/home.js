@@ -168,8 +168,8 @@ function signUp(contrasena, correo, direccion, nombre, telefono, ){
     })
     .then(data => {
         console.log(data)
+        showToast();
         window.location.href = 'http://localhost/TacosPipePHP/sections/home/home.php'; // reemplaza con tu URL
-
     })
     .catch((error) => {
         console.error('Error:', error);
@@ -298,4 +298,11 @@ function checkPassword(){
 function setDashboardProduct(img, title, price){
     var tag = '<div class="product"><img src="' + img + '" alt=""><div><h5>' + title + '</h5><h6>$' + price + '</h6></div></div>';
     return tag;
+}
+
+function showToast(){
+    $('#toastSignUp').show();
+    setTimeout(() => {
+        $('#toastSignUp').hide();
+      }, 3000);
 }

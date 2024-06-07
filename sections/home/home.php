@@ -186,6 +186,16 @@
         </div>
     </div>
 </section>
+
+<div id="toastSignUp" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header">
+    <strong class="mr-auto">Exitoso</strong>
+    <img src="../../resource/TacosPipeLogo.png" class="rounded mr-2" alt="...">
+  </div>
+  <div class="toast-body">
+    Registro exitoso.
+  </div>
+</div>
     
 <?php
     include "../../templates/footer.php";
