@@ -13,7 +13,7 @@ $javascript = "order.js";
     <a href="./backend/cerrarSesion.php">Cerrar Sesión</a> -->
         
 <section id="Order">
-    <div class="container">
+    <div class="container" data-title="Menu" data-intro="Aqui tienes los platillos que puedes agregar al carrito">
         <div class="row">
             <div class="col-12 order-top">
                 <h1>¿Qué va a llevar joven?</h1>
@@ -31,7 +31,7 @@ $javascript = "order.js";
         </div>
     </div>
     <div class="col-xl-4 col-lg-4 col-md-0 cart-menu">
-        <label for="cart-menu"><img src="../../resource/cart.svg" alt=""></label>
+        <label for="cart-menu" data-title="Carrito" data-intro="Aquí puedes ver los productos que has agregado al carrito y proceder al pago" ><img src="../../resource/cart.svg" alt=""></label>
     </div>
     
     <input type="checkbox" id="cart-menu">
@@ -71,4 +71,5 @@ $javascript = "order.js";
     </div>
 </section>
 <script src="../home/home.js"></script>
+
 <?php include "../../templates/footer.php"; ?>

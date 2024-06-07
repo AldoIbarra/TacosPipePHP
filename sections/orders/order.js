@@ -16,12 +16,15 @@ $(document ).ready(function() {
         return response.json();
     }).then(data => {
         mostrarProductos(data);
+        introJs().setOption("dontShowAgain", true).start();
     }).catch((error) => {
         console.error('Error:', error);
     });
     var total = 0;
 
 });
+
+
 
 $('#cart-menu').change(
     function(){
@@ -83,7 +86,7 @@ function mostrarProductos(productos) {
 
     productos.forEach(producto => {
         let html = `
-        <div class="row">
+        <div class="row" data-title="Platillo" data-intro="Aquí puedes ver el platillo con su descripción y precio">
             <div class="col-3 image-container">
                 <img src="${producto.imagen}" alt="">
             </div>
@@ -99,13 +102,13 @@ function mostrarProductos(productos) {
                 <p>${producto.descripcion}</p>
             </div>
             <div class="col-3 add-products">
-                <div class="incdec-button">
+                <div class="incdec-button" data-title="Cantidad" data-intro="Aquí puedes controlar la cantidad de productos que vas a mandar al carrito">
                     <button onclick="disminuir('dish${producto.id}')">-</button>
                     <p class="cantidad" id="dish${producto.id}">1</p>
                     <button onclick="incrementar('dish${producto.id}')">+</button>
                 </div>
                 <div class="add-to-cart">
-                    <button onclick="addCarrito(this.value)" value="${producto.id}" >Agregar al carrito</button>
+                    <button data-title="Agregar al carrito" data-intro="Con este botón puedes agregas el platillo al carrito" onclick="addCarrito(this.value)" value="${producto.id}" >Agregar al carrito</button>
                 </div>
             </div>
             <div class="col-12 order-now">
@@ -114,6 +117,7 @@ function mostrarProductos(productos) {
         contenedor.innerHTML += html;
     });
 }
+
 
 //document.addEventListener('DOMContentLoaded', (event) => {
 // Primero, seleccionamos los elementos del DOM
@@ -193,3 +197,5 @@ function enviarDatos() {
         location.reload();
     });
 }
+
+//introJs().refresh();
